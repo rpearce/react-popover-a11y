@@ -29,6 +29,21 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+var contentStyle = {
+  backgroundColor: '#fff',
+  border: '1px solid #ccc',
+  padding: '1em 2em'
+};
+var triggerStyle = {
+  backgroundColor: '#0099ff',
+  borderRadius: '3px',
+  display: 'inline-block',
+  height: '18px',
+  marginLeft: '1em',
+  verticalAlign: 'middle',
+  width: '18px'
+};
+
 var App =
 /*#__PURE__*/
 function (_Component) {
@@ -74,23 +89,11 @@ function (_Component) {
       var isOpen = this.state.isOpen;
 
       var content = _react.default.createElement("div", {
-        style: {
-          backgroundColor: '#fff',
-          border: '1px solid #ccc',
-          padding: '1em 2em'
-        }
+        style: contentStyle
       }, "This is some content");
 
       var trigger = _react.default.createElement("div", {
-        style: {
-          backgroundColor: '#0099ff',
-          borderRadius: '3px',
-          display: 'inline-block',
-          height: '18px',
-          marginLeft: '1em',
-          verticalAlign: 'middle',
-          width: '18px'
-        }
+        style: triggerStyle
       });
 
       return _react.default.createElement("div", null, "(click this or interact via keyboard)", _react.default.createElement(_.default, {

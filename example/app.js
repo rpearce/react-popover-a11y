@@ -2,6 +2,22 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import PopoverA11y from '../'
 
+const contentStyle = {
+  backgroundColor: '#fff',
+  border: '1px solid #ccc',
+  padding: '1em 2em'
+}
+
+const triggerStyle = {
+  backgroundColor: '#0099ff',
+  borderRadius: '3px',
+  display: 'inline-block',
+  height: '18px',
+  marginLeft: '1em',
+  verticalAlign: 'middle',
+  width: '18px'
+}
+
 class App extends Component {
   constructor(...params) {
     super(...params)
@@ -20,30 +36,8 @@ class App extends Component {
 
   render() {
     const { isOpen } = this.state
-    const content = (
-      <div
-        style={{
-          backgroundColor: '#fff',
-          border: '1px solid #ccc',
-          padding: '1em 2em'
-        }}
-      >
-        This is some content
-      </div>
-    )
-    const trigger = (
-      <div
-        style={{
-          backgroundColor: '#0099ff',
-          borderRadius: '3px',
-          display: 'inline-block',
-          height: '18px',
-          marginLeft: '1em',
-          verticalAlign: 'middle',
-          width: '18px'
-        }}
-      />
-    )
+    const content = <div style={contentStyle}>This is some content</div>
+    const trigger = <div style={triggerStyle} />
 
     return (
       <div>
