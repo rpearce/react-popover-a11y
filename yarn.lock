@@ -4952,6 +4952,13 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-button-a11y@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-button-a11y/-/react-button-a11y-1.0.0.tgz#db0dd3cc616064ce329dbee4a904d80f6c321f1e"
+  integrity sha512-dt2HhphFrCijjSf8sIqrmVDzhUjz7apxXTwmtpJdz6vTAAyzKFxwTco0LUoi1WHou1LbuzN92ZN/xtixftsCLA==
+  dependencies:
+    "@babel/polyfill" "^7.0.0"
+
 react-dom@^16.6.3:
   version "16.6.3"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.6.3.tgz#8fa7ba6883c85211b8da2d0efeffc9d3825cccc0"

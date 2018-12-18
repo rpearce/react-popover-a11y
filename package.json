@@ -1,6 +1,6 @@
 {
   "name": "react-popover-a11y",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Accessible React popover component",
   "main": "index.js",
   "repository": {
@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
-    "@babel/core": "^7.2.0",
+    "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "all-contributors-cli": "^5.4.1",
@@ -79,6 +79,7 @@
     "react-dom": ">= 16.3"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0"
+    "@babel/polyfill": "^7.0.0",
+    "react-button-a11y": "^1.0.0"
   }
 }
