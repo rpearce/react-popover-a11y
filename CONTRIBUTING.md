@@ -49,10 +49,3 @@ To update snapshot tests:
 ```
 $ yarn test -u
 ```
-
-## Test Coverage
-100% test coverage is what we strive for, and you can check that by running
-
-```
-$ yarn coverage
-```
