@@ -35,7 +35,7 @@
   "scripts": {
     "build": "npm run build:js && npm run build:docs",
     "build:docs": "browserify example/app.js -o docs/app.js -t [ babelify ]",
-    "build:js": "babel source --out-dir src",
+    "build:js": "rm -rf src && babel source --out-dir src",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
