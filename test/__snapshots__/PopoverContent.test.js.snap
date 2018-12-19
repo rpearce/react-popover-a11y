@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PopoverContent component renders 1`] = `
+<div
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 0,
+      "position": "fixed",
+      "top": 0,
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, additional props added 1`] = `
+<div
+  aria-label="Mock label"
+  data-foo="bar"
+  id="mockId"
+  onClick={[MockFunction]}
+  role="dialog"
+  style={
+    Object {
+      "left": 313.5,
+      "position": "fixed",
+      "top": 213.5,
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, custom style provided 1`] = `
+<div
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 313.5,
+      "position": "fixed",
+      "top": 213.5,
+      "zIndex": "9999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, full mount 1`] = `
+<PopoverContent
+  forwardedRef={
+    Object {
+      "current": <div
+        aria-label="Mock label"
+        id="mockId"
+        role="dialog"
+        style="z-index: 999; left: 313.5px; position: fixed; top: 213.5px;"
+        tabindex="-1"
+      >
+        <div>
+          This is some content
+        </div>
+      </div>,
+    }
+  }
+  id="mockId"
+  label="Mock label"
+  triggerRect={
+    Object {
+      "height": 18,
+      "left": 300,
+      "top": 200,
+      "width": 18,
+    }
+  }
+>
+  <div
+    aria-label="Mock label"
+    id="mockId"
+    role="dialog"
+    style={
+      Object {
+        "left": 313.5,
+        "position": "fixed",
+        "top": 213.5,
+        "zIndex": "999",
+      }
+    }
+    tabIndex="-1"
+  >
+    <div>
+      This is some content
+    </div>
+  </div>
+</PopoverContent>
+`;
+
+exports[`PopoverContent component renders, triggerRect has values 1`] = `
+<div
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 313.5,
+      "position": "fixed",
+      "top": 213.5,
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, triggerRect null 1`] = `
+<div
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 0,
+      "position": "fixed",
+      "top": 0,
+      "zIndex": "9999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent container renders 1`] = `
+<div>
+  <ForwardRef(withForwardedRef(PopoverContent))
+    id="mockId"
+    label="Mock label"
+    triggerRect={
+      Object {
+        "height": 18,
+        "left": 300,
+        "top": 200,
+        "width": 18,
+      }
+    }
+  >
+    <PopoverContent
+      forwardedRef={
+        Object {
+          "current": <div
+            aria-label="Mock label"
+            id="mockId"
+            role="dialog"
+            style="z-index: 999; left: 313.5px; position: fixed; top: 213.5px;"
+            tabindex="-1"
+          >
+            <div>
+              This is some content
+            </div>
+          </div>,
+        }
+      }
+      id="mockId"
+      label="Mock label"
+      triggerRect={
+        Object {
+          "height": 18,
+          "left": 300,
+          "top": 200,
+          "width": 18,
+        }
+      }
+    >
+      <div
+        aria-label="Mock label"
+        id="mockId"
+        role="dialog"
+        style={
+          Object {
+            "left": 313.5,
+            "position": "fixed",
+            "top": 213.5,
+            "zIndex": "999",
+          }
+        }
+        tabIndex="-1"
+      >
+        <div>
+          This is some content
+        </div>
+      </div>
+    </PopoverContent>
+  </ForwardRef(withForwardedRef(PopoverContent))>
+</div>
+`;

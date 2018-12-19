@@ -24070,6 +24070,60 @@ function _typeof(obj) {
   return _typeof(obj);
 }
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -24137,7 +24191,23 @@ function _setPrototypeOf(o, p) {
   };
 
   return _setPrototypeOf(o, p);
-}
+} // @TODO do this way better
+
+
+var getStyle = function getStyle(_ref) {
+  var style = _ref.style,
+      t = _ref.triggerRect;
+  var left = t ? t.width * 0.75 + t.left : 0;
+  var top = t ? t.height * 0.75 + t.top : 0;
+  var position = 'fixed';
+  return Object.assign({}, {
+    zIndex: '999'
+  }, style, {
+    left: left,
+    position: position,
+    top: top
+  });
+};
 
 var PopoverContent =
 /*#__PURE__*/
@@ -24155,45 +24225,35 @@ function (_PureComponent) {
     value: function componentDidMount() {
       var _this = this;
 
+      console.log(this.props);
       setTimeout(function () {
         _this.props.forwardedRef.current.focus();
       }, 0);
-    } // @TODO do this way better
-
-  }, {
-    key: "getStyle",
-    value: function getStyle() {
-      var _this$props = this.props,
-          style = _this$props.style,
-          t = _this$props.triggerRect;
-      var left = t ? t.width * 0.75 + t.left : 0;
-      var top = t ? t.height * 0.75 + t.top : 0;
-      var position = 'fixed';
-      return Object.assign({}, {
-        zIndex: '999'
-      }, style, {
-        left: left,
-        position: position,
-        top: top
-      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this$props2 = this.props,
-          children = _this$props2.children,
-          forwardedRef = _this$props2.forwardedRef,
-          id = _this$props2.id,
-          label = _this$props2.label;
-      var style = this.getStyle();
-      return _react.default.createElement("div", {
+      var _this$props = this.props,
+          children = _this$props.children,
+          forwardedRef = _this$props.forwardedRef,
+          id = _this$props.id,
+          label = _this$props.label,
+          style = _this$props.style,
+          triggerRect = _this$props.triggerRect,
+          rest = _objectWithoutProperties(_this$props, ["children", "forwardedRef", "id", "label", "style", "triggerRect"]);
+
+      var newStyle = getStyle({
+        style: style,
+        triggerRect: triggerRect
+      });
+      return _react.default.createElement("div", _extends({}, rest, {
         "aria-label": label,
         id: id,
         ref: forwardedRef,
         role: "dialog",
-        style: style,
+        style: newStyle,
         tabIndex: "-1"
-      }, children);
+      }), children);
     }
   }]);
 
