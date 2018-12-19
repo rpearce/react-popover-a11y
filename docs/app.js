@@ -117,9 +117,9 @@ _reactDom.default.render(_react.default.createElement(App, null), container);
 },{"../":2,"react":14,"react-dom":11}],2:[function(require,module,exports){
 'use strict';
 
-module.exports = require('./src/index.js');
+module.exports = require('./src');
 
-},{"./src/index.js":23}],3:[function(require,module,exports){
+},{"./src":23}],3:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -24274,15 +24274,15 @@ function _extends() {
 }
 
 var withForwardedRef = function withForwardedRef(Comp) {
-  var handleForward = function handleForward(props, ref) {
+  var handle = function handle(props, ref) {
     return _react.default.createElement(Comp, _extends({}, props, {
       forwardedRef: ref
     }));
   };
 
   var name = Comp.displayName || Comp.name || 'Component';
-  handleForward.displayName = "withForwardedRef(".concat(name, ")");
-  return (0, _react.forwardRef)(handleForward);
+  handle.displayName = "withForwardedRef(".concat(name, ")");
+  return (0, _react.forwardRef)(handle);
 };
 
 var _default = withForwardedRef;
