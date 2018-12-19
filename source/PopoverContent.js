@@ -1,4 +1,5 @@
-import React, { PureComponent, forwardRef } from 'react'
+import React, { PureComponent } from 'react'
+import withForwardedRef from './withForwardedRef'
 
 export class PopoverContent extends PureComponent {
   componentDidMount() {
@@ -40,8 +41,4 @@ export class PopoverContent extends PureComponent {
   }
 }
 
-const WrappedComponent = forwardRef((props, ref) =>
-  <PopoverContent {...props} forwardedRef={ref} />
-)
-
-export default WrappedComponent
+export default withForwardedRef(PopoverContent)

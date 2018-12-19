@@ -23988,6 +23988,14 @@ exports.default = exports.PopoverContent = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _withForwardedRef = _interopRequireDefault(require("./withForwardedRef"));
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
 function _interopRequireWildcard(obj) {
   if (obj && obj.__esModule) {
     return obj;
@@ -24025,24 +24033,6 @@ function _typeof(obj) {
   }
 
   return _typeof(obj);
-}
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
 }
 
 function _classCallCheck(instance, Constructor) {
@@ -24128,8 +24118,13 @@ function (_PureComponent) {
   _createClass(PopoverContent, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.forwardedRef.current.focus();
-    }
+      var _this = this;
+
+      setTimeout(function () {
+        _this.props.forwardedRef.current.focus();
+      }, 0);
+    } // @TODO do this way better
+
   }, {
     key: "getStyle",
     value: function getStyle() {
@@ -24171,15 +24166,12 @@ function (_PureComponent) {
 }(_react.PureComponent);
 
 exports.PopoverContent = PopoverContent;
-var WrappedComponent = (0, _react.forwardRef)(function (props, ref) {
-  return _react.default.createElement(PopoverContent, _extends({}, props, {
-    forwardedRef: ref
-  }));
-});
-var _default = WrappedComponent;
+
+var _default = (0, _withForwardedRef.default)(PopoverContent);
+
 exports.default = _default;
 
-},{"react":14}],23:[function(require,module,exports){
+},{"./withForwardedRef":25,"react":14}],23:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24228,4 +24220,72 @@ var uniqueId = function uniqueId() {
 var _default = uniqueId;
 exports.default = _default;
 
-},{}]},{},[1]);
+},{}],25:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _interopRequireWildcard(obj) {
+  if (obj && obj.__esModule) {
+    return obj;
+  } else {
+    var newObj = {};
+
+    if (obj != null) {
+      for (var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+          var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};
+
+          if (desc.get || desc.set) {
+            Object.defineProperty(newObj, key, desc);
+          } else {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+    }
+
+    newObj.default = obj;
+    return newObj;
+  }
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+var withForwardedRef = function withForwardedRef(Comp) {
+  var handleForward = function handleForward(props, ref) {
+    return _react.default.createElement(Comp, _extends({}, props, {
+      forwardedRef: ref
+    }));
+  };
+
+  var name = Comp.displayName || Comp.name || 'Component';
+  handleForward.displayName = "withForwardedRef(".concat(name, ")");
+  return (0, _react.forwardRef)(handleForward);
+};
+
+var _default = withForwardedRef;
+exports.default = _default;
+
+},{"react":14}]},{},[1]);
