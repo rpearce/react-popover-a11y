@@ -24225,7 +24225,6 @@ function (_PureComponent) {
     value: function componentDidMount() {
       var _this = this;
 
-      console.log(this.props);
       setTimeout(function () {
         _this.props.forwardedRef.current.focus();
       }, 0);
