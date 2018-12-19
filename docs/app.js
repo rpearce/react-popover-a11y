@@ -23886,12 +23886,23 @@ function (_PureComponent) {
   }, {
     key: "getTriggerRect",
     value: function getTriggerRect() {
-      var rect = this.triggerRef.current.getBoundingClientRect();
+      var tNode = this.triggerRef.current;
+
+      if (tNode) {
+        var rect = tNode.getBoundingClientRect();
+        return {
+          height: rect.height,
+          left: rect.left,
+          top: rect.top,
+          width: rect.width
+        };
+      }
+
       return {
-        left: rect.left,
-        height: rect.height,
-        width: rect.width,
-        top: rect.top
+        height: 0,
+        left: 0,
+        top: 0,
+        width: 0
       };
     }
   }, {
@@ -23939,10 +23950,7 @@ function (_PureComponent) {
   }, {
     key: "teardown",
     value: function teardown() {
-      if (document.getElementById(this.el)) {
-        document.body.removeChild(this.el);
-      }
-
+      document.body.removeChild(this.el);
       document.removeEventListener('keydown', this.handleKeyDown);
       document.removeEventListener('click', this.handleDocumentClick);
     }

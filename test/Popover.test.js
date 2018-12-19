@@ -30,6 +30,23 @@ describe('Popover', () => {
     expect(tree).toMatchSnapshot()
   })
 
+  it('renders, open', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = mount(
+      <PopoverA11y
+        content={content}
+        isOpen={true}
+        label="Click me"
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
   it('renders with PopoverContent', () => {
     const content = (
       <PopoverContent style={{ zIndex: '9999' }}>
@@ -37,10 +54,31 @@ describe('Popover', () => {
       </PopoverContent>
     )
     const trigger = <div>Trigger</div>
-    const wrapper = shallow(
+    const wrapper = mount(
       <PopoverA11y
         content={content}
         isOpen={false}
+        label="Click me"
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders with PopoverContent, open', () => {
+    const content = (
+      <PopoverContent style={{ zIndex: '9999' }}>
+        <div>This is some content</div>
+      </PopoverContent>
+    )
+    const trigger = <div>Trigger</div>
+    const wrapper = mount(
+      <PopoverA11y
+        content={content}
+        isOpen={true}
         label="Click me"
         onClose={jest.fn()}
         onOpen={jest.fn()}
@@ -77,9 +115,6 @@ describe('Popover', () => {
     describe('when closed to open', () => {
 
       it('calls the setup function', () => {
-        const node = document.createElement('div')
-        document.body.appendChild(node)
-
         const content = (
           <PopoverContent style={{ zIndex: '9999' }}>
             <div>This is some content</div>
@@ -94,8 +129,7 @@ describe('Popover', () => {
             onClose={jest.fn()}
             onOpen={jest.fn()}
             trigger={trigger}
-          />,
-          { attachTo: node }
+          />
         )
         const instance = wrapper.instance()
 
@@ -113,9 +147,6 @@ describe('Popover', () => {
     describe('when open to closed', () => {
 
       it('calls the teardown function', () => {
-        const node = document.createElement('div')
-        document.body.appendChild(node)
-
         const content = (
           <PopoverContent style={{ zIndex: '9999' }}>
             <div>This is some content</div>
@@ -130,8 +161,7 @@ describe('Popover', () => {
             onClose={jest.fn()}
             onOpen={jest.fn()}
             trigger={trigger}
-          />,
-          { attachTo: node }
+          />
         )
         const instance = wrapper.instance()
 
@@ -148,14 +178,110 @@ describe('Popover', () => {
 
     })
 
+    describe('when the same', () => {
+
+      it('calls neither setup nor teardown', () => {
+        const content = (
+          <PopoverContent style={{ zIndex: '9999' }}>
+            <div>This is some content</div>
+          </PopoverContent>
+        )
+        const trigger = <button>Trigger</button>
+        const wrapper = mount(
+          <PopoverA11y
+            content={content}
+            isOpen={false}
+            label="Click me"
+            onClose={jest.fn()}
+            onOpen={jest.fn()}
+            trigger={trigger}
+          />
+        )
+        const instance = wrapper.instance()
+
+        jest.spyOn(instance, 'setup')
+        jest.spyOn(instance, 'teardown')
+
+        wrapper.setProps({ isOpen: false })
+        wrapper.setProps({ isOpen: false })
+
+        expect(instance.setup).not.toHaveBeenCalled()
+        expect(instance.teardown).not.toHaveBeenCalled()
+      })
+
+    })
+
+  })
+
+  describe('componentWillUnmount', () => {
+
+    describe('when closed', () => {
+
+      it('does nothing', () => {
+        const content = (
+          <PopoverContent style={{ zIndex: '9999' }}>
+            <div>This is some content</div>
+          </PopoverContent>
+        )
+        const trigger = <button>Trigger</button>
+        const wrapper = mount(
+          <PopoverA11y
+            content={content}
+            isOpen={false}
+            label="Click me"
+            onClose={jest.fn()}
+            onOpen={jest.fn()}
+            trigger={trigger}
+          />
+        )
+        const instance = wrapper.instance()
+
+        jest.spyOn(instance, 'teardown')
+
+        wrapper.unmount()
+
+        expect(instance.teardown).not.toHaveBeenCalled()
+      })
+
+    })
+
+    describe('when open', () => {
+
+      it('calls teardown', () => {
+        const content = (
+          <PopoverContent style={{ zIndex: '9999' }}>
+            <div>This is some content</div>
+          </PopoverContent>
+        )
+        const trigger = <button>Trigger</button>
+        const wrapper = mount(
+          <PopoverA11y
+            content={content}
+            isOpen={false}
+            label="Click me"
+            onClose={jest.fn()}
+            onOpen={jest.fn()}
+            trigger={trigger}
+          />
+        )
+        const instance = wrapper.instance()
+
+        wrapper.setProps({ isOpen: true })
+
+        jest.spyOn(instance, 'teardown')
+
+        wrapper.unmount()
+
+        expect(instance.teardown).toHaveBeenCalled()
+      })
+
+    })
+
   })
 
   describe('setup fn', () => {
 
     it('adds listeners & appends el to body', () => {
-      const node = document.createElement('div')
-      document.body.appendChild(node)
-
       const content = (
         <PopoverContent style={{ zIndex: '9999' }}>
           <div>This is some content</div>
@@ -170,8 +296,7 @@ describe('Popover', () => {
           onClose={jest.fn()}
           onOpen={jest.fn()}
           trigger={trigger}
-        />,
-        { attachTo: node }
+        />
       )
       const instance = wrapper.instance()
 
@@ -192,9 +317,6 @@ describe('Popover', () => {
   describe('teardown fn', () => {
 
     it('removes listeners & removes el from body', () => {
-      const node = document.createElement('div')
-      document.body.appendChild(node)
-
       const content = (
         <PopoverContent style={{ zIndex: '9999' }}>
           <div>This is some content</div>
@@ -209,8 +331,7 @@ describe('Popover', () => {
           onClose={jest.fn()}
           onOpen={jest.fn()}
           trigger={trigger}
-        />,
-        { attachTo: node }
+        />
       )
       const instance = wrapper.instance()
 
@@ -295,72 +416,294 @@ describe('Popover', () => {
 
   })
 
-  //describe('document click', () => {
+  describe('document click', () => {
 
-  //  describe('when target on trigger', () => {
+    describe('when target in trigger', () => {
 
-  //    it('does nothing', () => {
-  //    })
+      it('does nothing', () => {
+        const onClose = jest.fn()
+        const content = (
+          <PopoverContent style={{ zIndex: '9999' }}>
+            <div>This is some content</div>
+          </PopoverContent>
+        )
+        const trigger = <button>Trigger</button>
+        const wrapper = mount(
+          <PopoverA11y
+            content={content}
+            isOpen={false}
+            label="Click me"
+            onClose={onClose}
+            onOpen={jest.fn()}
+            trigger={trigger}
+          />
+        )
+        const instance = wrapper.instance()
 
-  //  })
+        wrapper.setProps({ isOpen: true })
 
-  //  describe('when target on popover', () => {
+        instance.handleDocumentClick({
+          target: instance.triggerRef.current
+        })
 
-  //    it('does nothing', () => {
-  //    })
+        expect(onClose).not.toHaveBeenCalled()
+      })
 
-  //  })
+    })
 
-  //  describe('when target something else', () => {
+    describe('when target in popover', () => {
 
-  //    it('calls onClose', () => {
-  //    })
+      it('does nothing', () => {
+        const onClose = jest.fn()
+        const content = (
+          <PopoverContent style={{ zIndex: '9999' }}>
+            <div>This is some content</div>
+          </PopoverContent>
+        )
+        const trigger = <button>Trigger</button>
+        const wrapper = mount(
+          <PopoverA11y
+            content={content}
+            isOpen={false}
+            label="Click me"
+            onClose={onClose}
+            onOpen={jest.fn()}
+            trigger={trigger}
+          />
+        )
+        const instance = wrapper.instance()
 
-  //  })
+        wrapper.setProps({ isOpen: true })
 
-  //})
+        instance.handleDocumentClick({
+          target: instance.popoverRef.current
+        })
 
-  //describe('document key down', () => {
+        expect(onClose).not.toHaveBeenCalled()
+      })
 
-  //  describe('when closed', () => {
+    })
 
-  //    it('does nothing', () => {
-  //    })
+    describe('when target something else', () => {
 
-  //  })
+      it('calls onClose', () => {
+        const onClose = jest.fn()
+        const content = (
+          <PopoverContent style={{ zIndex: '9999' }}>
+            <div>This is some content</div>
+          </PopoverContent>
+        )
+        const trigger = <button>Trigger</button>
+        const wrapper = mount(
+          <PopoverA11y
+            content={content}
+            isOpen={false}
+            label="Click me"
+            onClose={onClose}
+            onOpen={jest.fn()}
+            trigger={trigger}
+          />
+        )
 
-  //  describe('when open', () => {
+        wrapper.setProps({ isOpen: true })
 
-  //    describe('when e.key is Escape', () => {
+        document.dispatchEvent(new Event('click'))
 
-  //      it('focuses on trigger and calls onClose', () => {
-  //      })
+        expect(onClose).toHaveBeenCalled()
+      })
 
-  //    })
+    })
 
-  //    describe('when e.keyCode is 27', () => {
+  })
 
-  //      it('focuses on trigger and calls onClose', () => {
-  //      })
+  describe('document key down', () => {
 
-  //    })
+    describe('when closed', () => {
 
-  //    describe('when e.key is Spacebar', () => {
+      it('does nothing', () => {
+        const onClose = jest.fn()
+        const content = (
+          <PopoverContent style={{ zIndex: '9999' }}>
+            <div>This is some content</div>
+          </PopoverContent>
+        )
+        const trigger = <button>Trigger</button>
+        const wrapper = mount(
+          <PopoverA11y
+            content={content}
+            isOpen={false}
+            label="Click me"
+            onClose={onClose}
+            onOpen={jest.fn()}
+            trigger={trigger}
+          />
+        )
+        const instance = wrapper.instance()
+        const focusSpy = jest.spyOn(instance.triggerRef.current, 'focus')
 
-  //      it('does nothing', () => {
-  //      })
+        document.dispatchEvent(new KeyboardEvent('keydown', {
+          bubbles: true,
+          key: 'Escape'
+        }))
 
-  //    })
+        expect(focusSpy).not.toHaveBeenCalled()
+        expect(onClose).not.toHaveBeenCalled()
+      })
 
-  //    describe('when e.keyCode is 13', () => {
+    })
 
-  //      it('does nothing', () => {
-  //      })
+    describe('when open', () => {
 
-  //    })
+      describe('when e.key is Escape', () => {
 
-  //  })
+        it('focuses on trigger and calls onClose', () => {
+          const onClose = jest.fn()
+          const content = (
+            <PopoverContent style={{ zIndex: '9999' }}>
+              <div>This is some content</div>
+            </PopoverContent>
+          )
+          const trigger = <button>Trigger</button>
+          const wrapper = mount(
+            <PopoverA11y
+              content={content}
+              isOpen={false}
+              label="Click me"
+              onClose={onClose}
+              onOpen={jest.fn()}
+              trigger={trigger}
+            />
+          )
+          const instance = wrapper.instance()
 
-  //})
+          wrapper.setProps({ isOpen: true })
+
+          const focusSpy = jest.spyOn(instance.triggerRef.current, 'focus')
+
+          document.dispatchEvent(new KeyboardEvent('keydown', {
+            bubbles: true,
+            key: 'Escape'
+          }))
+
+          expect(focusSpy).toHaveBeenCalled()
+          expect(onClose).toHaveBeenCalled()
+        })
+
+      })
+
+      describe('when e.keyCode is 27', () => {
+
+        it('focuses on trigger and calls onClose', () => {
+          const onClose = jest.fn()
+          const content = (
+            <PopoverContent style={{ zIndex: '9999' }}>
+              <div>This is some content</div>
+            </PopoverContent>
+          )
+          const trigger = <button>Trigger</button>
+          const wrapper = mount(
+            <PopoverA11y
+              content={content}
+              isOpen={false}
+              label="Click me"
+              onClose={onClose}
+              onOpen={jest.fn()}
+              trigger={trigger}
+            />
+          )
+          const instance = wrapper.instance()
+
+          wrapper.setProps({ isOpen: true })
+
+          const focusSpy = jest.spyOn(instance.triggerRef.current, 'focus')
+
+          document.dispatchEvent(new KeyboardEvent('keydown', {
+            bubbles: true,
+            keyCode: 27
+          }))
+
+          expect(focusSpy).toHaveBeenCalled()
+          expect(onClose).toHaveBeenCalled()
+        })
+
+      })
+
+      describe('when e.key is Spacebar', () => {
+
+        it('does nothing', () => {
+          const onClose = jest.fn()
+          const content = (
+            <PopoverContent style={{ zIndex: '9999' }}>
+              <div>This is some content</div>
+            </PopoverContent>
+          )
+          const trigger = <button>Trigger</button>
+          const wrapper = mount(
+            <PopoverA11y
+              content={content}
+              isOpen={false}
+              label="Click me"
+              onClose={onClose}
+              onOpen={jest.fn()}
+              trigger={trigger}
+            />
+          )
+          const instance = wrapper.instance()
+
+          wrapper.setProps({ isOpen: true })
+
+          const focusSpy = jest.spyOn(instance.triggerRef.current, 'focus')
+
+          document.dispatchEvent(new KeyboardEvent('keydown', {
+            bubbles: true,
+            key: 'Spacebar'
+          }))
+
+          expect(focusSpy).not.toHaveBeenCalled()
+          expect(onClose).not.toHaveBeenCalled()
+        })
+
+      })
+
+      describe('when e.keyCode is 13', () => {
+
+        it('does nothing', () => {
+          const onClose = jest.fn()
+          const content = (
+            <PopoverContent style={{ zIndex: '9999' }}>
+              <div>This is some content</div>
+            </PopoverContent>
+          )
+          const trigger = <button>Trigger</button>
+          const wrapper = mount(
+            <PopoverA11y
+              content={content}
+              isOpen={false}
+              label="Click me"
+              onClose={onClose}
+              onOpen={jest.fn()}
+              trigger={trigger}
+            />
+          )
+          const instance = wrapper.instance()
+
+          wrapper.setProps({ isOpen: true })
+
+          const focusSpy = jest.spyOn(instance.triggerRef.current, 'focus')
+
+          document.dispatchEvent(new KeyboardEvent('keydown', {
+            bubbles: true,
+            keyCode: 13
+          }))
+
+          expect(focusSpy).not.toHaveBeenCalled()
+          expect(onClose).not.toHaveBeenCalled()
+        })
+
+      })
+
+    })
+
+  })
 
 })

@@ -36,13 +36,24 @@ export default class Popover extends PureComponent {
   }
 
   getTriggerRect() {
-    const rect = this.triggerRef.current.getBoundingClientRect()
+    const { current: tNode } = this.triggerRef
+
+    if (tNode) {
+      const rect = tNode.getBoundingClientRect()
+
+      return {
+        height: rect.height,
+        left: rect.left,
+        top: rect.top,
+        width: rect.width
+      }
+    }
 
     return {
-      left: rect.left,
-      height: rect.height,
-      width: rect.width,
-      top: rect.top
+      height: 0,
+      left: 0,
+      top: 0,
+      width: 0
     }
   }
 
@@ -69,11 +80,9 @@ export default class Popover extends PureComponent {
   }
 
   handleKeyDown(e) {
-    const { isOpen, onClose } = this.props
-
-    if (isOpen && (e.key === 'Escape' || e.keyCode === 27)) {
+    if (e.key === 'Escape' || e.keyCode === 27) {
       this.triggerRef.current.focus()
-      onClose()
+      this.props.onClose()
     }
   }
 
