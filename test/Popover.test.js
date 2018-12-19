@@ -9,10 +9,6 @@ import PopoverA11y, { PopoverContent } from '../source'
 
 describe('Popover', () => {
 
-  afterEach(() => {
-    jest.clearAllMocks()
-  })
-
   it('renders', () => {
     const content = <div>This is some content</div>
     const trigger = <div>Trigger</div>
@@ -190,7 +186,7 @@ describe('Popover', () => {
         const wrapper = mount(
           <PopoverA11y
             content={content}
-            isOpen={false}
+            isOpen={true}
             label="Click me"
             onClose={jest.fn()}
             onOpen={jest.fn()}
@@ -202,8 +198,7 @@ describe('Popover', () => {
         jest.spyOn(instance, 'setup')
         jest.spyOn(instance, 'teardown')
 
-        wrapper.setProps({ isOpen: false })
-        wrapper.setProps({ isOpen: false })
+        wrapper.setProps({ isOpen: true, testing: true })
 
         expect(instance.setup).not.toHaveBeenCalled()
         expect(instance.teardown).not.toHaveBeenCalled()
