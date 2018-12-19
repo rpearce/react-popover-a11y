@@ -1,19 +1,13 @@
-import React, { PureComponent, createRef } from 'react'
+import React, { PureComponent, forwardRef } from 'react'
 
-export default class PopoverContent extends PureComponent {
-  constructor(...params) {
-    super(...params)
-    this.ref = createRef()
-  }
-
+export class PopoverContent extends PureComponent {
   componentDidMount() {
     setTimeout(() => {
-      if (this.ref.current) {
-        this.ref.current.focus()
-      }
+      this.props.forwardedRef.current.focus()
     }, 0)
   }
 
+  // @TODO do this way better
   getStyle() {
     const { style, triggerRect: t } = this.props
     const left = t ? t.width * 0.75 + t.left : 0
@@ -28,14 +22,14 @@ export default class PopoverContent extends PureComponent {
   }
 
   render() {
-    const { children, id, label } = this.props
+    const { children, forwardedRef, id, label } = this.props
     const style = this.getStyle()
 
     return (
       <div
         aria-label={label}
         id={id}
-        ref={this.ref}
+        ref={forwardedRef}
         role="dialog"
         style={style}
         tabIndex="-1"
@@ -45,3 +39,9 @@ export default class PopoverContent extends PureComponent {
     )
   }
 }
+
+const WrappedComponent = forwardRef((props, ref) =>
+  <PopoverContent {...props} forwardedRef={ref} />
+)
+
+export default WrappedComponent

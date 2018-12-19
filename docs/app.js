@@ -23826,13 +23826,11 @@ function (_PureComponent) {
     }
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Popover)).call.apply(_getPrototypeOf2, [this].concat(params)));
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleClickTrigger = _this.handleClickTrigger.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleDocumentClick = _this.handleDocumentClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleKeyDown = _this.handleKeyDown.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.el = document.createElement('div');
     _this.id = (0, _uniqueId.default)('popover-');
-    _this.ref = (0, _react.createRef)();
     _this.triggerRef = (0, _react.createRef)();
     _this.popoverRef = (0, _react.createRef)();
     return _this;
@@ -23870,16 +23868,6 @@ function (_PureComponent) {
       };
     }
   }, {
-    key: "handleClick",
-    value: function handleClick(e) {
-      if (e.currentTarget === this.ref.current) {
-        return;
-      }
-
-      e.stopPropagation();
-      e.nativeEvent.stopImmediatePropagation();
-    }
-  }, {
     key: "handleClickTrigger",
     value: function handleClickTrigger() {
       var _this$props = this.props,
@@ -23896,7 +23884,14 @@ function (_PureComponent) {
     }
   }, {
     key: "handleDocumentClick",
-    value: function handleDocumentClick() {
+    value: function handleDocumentClick(e) {
+      var isTrigger = this.triggerRef.current.contains(e.target);
+      var isPopover = this.popoverRef.current.contains(e.target);
+
+      if (isTrigger || isPopover) {
+        return;
+      }
+
       this.props.onClose();
     }
   }, {
@@ -23972,11 +23967,7 @@ function (_PureComponent) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement("span", {
-        // eslint-disable-line
-        onClick: this.handleClick,
-        ref: this.ref
-      }, this.renderTrigger(), (0, _reactDom.createPortal)(this.renderPopover(), this.el));
+      return _react.default.createElement("span", null, this.renderTrigger(), (0, _reactDom.createPortal)(this.renderPopover(), this.el));
     }
   }]);
 
@@ -23993,7 +23984,7 @@ function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.itera
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.default = exports.PopoverContent = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -24034,6 +24025,24 @@ function _typeof(obj) {
   }
 
   return _typeof(obj);
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
 }
 
 function _classCallCheck(instance, Constructor) {
@@ -24111,31 +24120,15 @@ function (_PureComponent) {
   _inherits(PopoverContent, _PureComponent);
 
   function PopoverContent() {
-    var _getPrototypeOf2;
-
-    var _this;
-
     _classCallCheck(this, PopoverContent);
 
-    for (var _len = arguments.length, params = new Array(_len), _key = 0; _key < _len; _key++) {
-      params[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(PopoverContent)).call.apply(_getPrototypeOf2, [this].concat(params)));
-    _this.ref = (0, _react.createRef)();
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(PopoverContent).apply(this, arguments));
   }
 
   _createClass(PopoverContent, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
-
-      setTimeout(function () {
-        if (_this2.ref.current) {
-          _this2.ref.current.focus();
-        }
-      }, 0);
+      this.props.forwardedRef.current.focus();
     }
   }, {
     key: "getStyle",
@@ -24159,13 +24152,14 @@ function (_PureComponent) {
     value: function render() {
       var _this$props2 = this.props,
           children = _this$props2.children,
+          forwardedRef = _this$props2.forwardedRef,
           id = _this$props2.id,
           label = _this$props2.label;
       var style = this.getStyle();
       return _react.default.createElement("div", {
         "aria-label": label,
         id: id,
-        ref: this.ref,
+        ref: forwardedRef,
         role: "dialog",
         style: style,
         tabIndex: "-1"
@@ -24176,7 +24170,14 @@ function (_PureComponent) {
   return PopoverContent;
 }(_react.PureComponent);
 
-exports.default = PopoverContent;
+exports.PopoverContent = PopoverContent;
+var WrappedComponent = (0, _react.forwardRef)(function (props, ref) {
+  return _react.default.createElement(PopoverContent, _extends({}, props, {
+    forwardedRef: ref
+  }));
+});
+var _default = WrappedComponent;
+exports.default = _default;
 
 },{"react":14}],23:[function(require,module,exports){
 "use strict";

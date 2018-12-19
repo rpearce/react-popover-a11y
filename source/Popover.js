@@ -8,13 +8,11 @@ import PopoverContent from './PopoverContent'
 export default class Popover extends PureComponent {
   constructor(...params) {
     super(...params)
-    this.handleClick = this.handleClick.bind(this)
     this.handleClickTrigger = this.handleClickTrigger.bind(this)
     this.handleDocumentClick = this.handleDocumentClick.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.el = document.createElement('div')
     this.id = uniqueId('popover-')
-    this.ref = createRef()
     this.triggerRef = createRef()
     this.popoverRef = createRef()
   }
@@ -48,15 +46,6 @@ export default class Popover extends PureComponent {
     }
   }
 
-  handleClick(e) {
-    if (e.currentTarget === this.ref.current) {
-      return
-    }
-
-    e.stopPropagation()
-    e.nativeEvent.stopImmediatePropagation()
-  }
-
   handleClickTrigger() {
     const { isOpen, onClose, onOpen } = this.props
 
@@ -68,7 +57,14 @@ export default class Popover extends PureComponent {
     onOpen()
   }
 
-  handleDocumentClick() {
+  handleDocumentClick(e) {
+    const isTrigger = this.triggerRef.current.contains(e.target)
+    const isPopover = this.popoverRef.current.contains(e.target)
+
+    if (isTrigger || isPopover) {
+      return
+    }
+
     this.props.onClose()
   }
 
@@ -142,10 +138,7 @@ export default class Popover extends PureComponent {
 
   render() {
     return (
-      <span // eslint-disable-line
-        onClick={this.handleClick}
-        ref={this.ref}
-      >
+      <span>
         {this.renderTrigger()}
         {createPortal(this.renderPopover(), this.el)}
       </span>
