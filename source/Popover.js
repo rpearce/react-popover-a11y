@@ -69,9 +69,11 @@ export default class Popover extends PureComponent {
   }
 
   handleKeyDown(e) {
-    if (e.key === 'Escape' || e.keyCode === 27) {
+    const { isOpen, onClose } = this.props
+
+    if (isOpen && (e.key === 'Escape' || e.keyCode === 27)) {
       this.triggerRef.current.focus()
-      this.props.onClose()
+      onClose()
     }
   }
 
@@ -82,9 +84,7 @@ export default class Popover extends PureComponent {
   }
 
   teardown() {
-    if (document.getElementById(this.el)) {
-      document.body.removeChild(this.el)
-    }
+    document.body.removeChild(this.el)
     document.removeEventListener('keydown', this.handleKeyDown)
     document.removeEventListener('click', this.handleDocumentClick)
   }

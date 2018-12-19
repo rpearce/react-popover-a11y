@@ -114,12 +114,12 @@ var container = document.querySelector('[data-app]');
 
 _reactDom.default.render(_react.default.createElement(App, null), container);
 
-},{"../":2,"react":14,"react-dom":11}],2:[function(require,module,exports){
+},{"../":2,"react":16,"react-dom":11}],2:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./src');
 
-},{"./src":23}],3:[function(require,module,exports){
+},{"./src":25}],3:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -509,9 +509,9 @@ module.exports = ReactPropTypesSecret;
 },{}],7:[function(require,module,exports){
 'use strict'
 
-module.exports = require('./src/react-button-a11y.js')
+module.exports = require('./src')
 
-},{"./src/react-button-a11y.js":8}],8:[function(require,module,exports){
+},{"./src":8}],8:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -519,13 +519,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.ButtonA11y = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = require("react");
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+var _reactWithForwardedRef = _interopRequireDefault(require("react-with-forwarded-ref"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
@@ -624,14 +624,11 @@ ButtonA11y.defaultProps = {
   onKeyDown: Function.prototype,
   strictMode: true
 };
-var WrappedComponent = (0, _react.forwardRef)(function (props, ref) {
-  return _react.default.createElement(ButtonA11y, _extends({}, props, {
-    forwardedRef: ref
-  }));
-});
-var _default = WrappedComponent;
+
+var _default = (0, _reactWithForwardedRef.default)(ButtonA11y);
+
 exports.default = _default;
-},{"react":14}],9:[function(require,module,exports){
+},{"react":16,"react-with-forwarded-ref":12}],9:[function(require,module,exports){
 (function (process){
 /** @license React v16.6.1
  * react-dom.development.js
@@ -20362,7 +20359,7 @@ module.exports = reactDom;
 }
 
 }).call(this,require('_process'))
-},{"_process":4,"object-assign":3,"prop-types/checkPropTypes":5,"react":14,"scheduler":19,"scheduler/tracing":20}],10:[function(require,module,exports){
+},{"_process":4,"object-assign":3,"prop-types/checkPropTypes":5,"react":16,"scheduler":21,"scheduler/tracing":22}],10:[function(require,module,exports){
 /** @license React v16.6.1
  * react-dom.production.min.js
  *
@@ -20613,7 +20610,7 @@ void 0:t("40");return a._reactRootContainer?(Oh(function(){$h(null,null,a,!1,fun
 Ka,La,Ca.injectEventPluginsByName,qa,Ra,function(a){za(a,Qa)},Ib,Jb,Jd,Ea]},unstable_createRoot:function(a,b){Yh(a)?void 0:t("299","unstable_createRoot");return new Xh(a,!0,null!=b&&!0===b.hydrate)}};(function(a){var b=a.findFiberByHostInstance;return Ve(n({},a,{findHostInstanceByFiber:function(a){a=nd(a);return null===a?null:a.stateNode},findFiberByHostInstance:function(a){return b?b(a):null}}))})({findFiberByHostInstance:Ia,bundleType:0,version:"16.6.3",rendererPackageName:"react-dom"});
 var ei={default:bi},fi=ei&&bi||ei;module.exports=fi.default||fi;
 
-},{"object-assign":3,"react":14,"scheduler":19}],11:[function(require,module,exports){
+},{"object-assign":3,"react":16,"scheduler":21}],11:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -20656,6 +20653,36 @@ if (process.env.NODE_ENV === 'production') {
 
 }).call(this,require('_process'))
 },{"./cjs/react-dom.development.js":9,"./cjs/react-dom.production.min.js":10,"_process":4}],12:[function(require,module,exports){
+arguments[4][7][0].apply(exports,arguments)
+},{"./src":13,"dup":7}],13:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var withForwardedRef = function withForwardedRef(Comp) {
+  var handle = function handle(props, ref) {
+    return _react.default.createElement(Comp, _extends({}, props, {
+      forwardedRef: ref
+    }));
+  };
+
+  var name = Comp.displayName || Comp.name;
+  handle.displayName = "withForwardedRef(".concat(name, ")");
+  return (0, _react.forwardRef)(handle);
+};
+
+var _default = withForwardedRef;
+exports.default = _default;
+},{"react":16}],14:[function(require,module,exports){
 (function (process){
 /** @license React v16.6.1
  * react.development.js
@@ -22499,7 +22526,7 @@ module.exports = react;
 }
 
 }).call(this,require('_process'))
-},{"_process":4,"object-assign":3,"prop-types/checkPropTypes":5}],13:[function(require,module,exports){
+},{"_process":4,"object-assign":3,"prop-types/checkPropTypes":5}],15:[function(require,module,exports){
 /** @license React v16.6.1
  * react.production.min.js
  *
@@ -22525,7 +22552,7 @@ _currentValue:a,_currentValue2:a,_threadCount:0,Provider:null,Consumer:null};a.P
 if(null!=b){void 0!==b.ref&&(h=b.ref,f=K.current);void 0!==b.key&&(g=""+b.key);var l=void 0;a.type&&a.type.defaultProps&&(l=a.type.defaultProps);for(c in b)L.call(b,c)&&!M.hasOwnProperty(c)&&(d[c]=void 0===b[c]&&void 0!==l?l[c]:b[c])}c=arguments.length-2;if(1===c)d.children=e;else if(1<c){l=Array(c);for(var m=0;m<c;m++)l[m]=arguments[m+2];d.children=l}return{$$typeof:p,type:a.type,key:g,ref:h,props:d,_owner:f}},createFactory:function(a){var b=N.bind(null,a);b.type=a;return b},isValidElement:O,version:"16.6.3",
 __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:K,assign:k}};X.unstable_ConcurrentMode=x;X.unstable_Profiler=u;var Y={default:X},Z=Y&&X||Y;module.exports=Z.default||Z;
 
-},{"object-assign":3}],14:[function(require,module,exports){
+},{"object-assign":3}],16:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -22536,7 +22563,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react.development.js":12,"./cjs/react.production.min.js":13,"_process":4}],15:[function(require,module,exports){
+},{"./cjs/react.development.js":14,"./cjs/react.production.min.js":15,"_process":4}],17:[function(require,module,exports){
 (function (process){
 /** @license React v0.11.3
  * scheduler-tracing.development.js
@@ -22960,7 +22987,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 }
 
 }).call(this,require('_process'))
-},{"_process":4}],16:[function(require,module,exports){
+},{"_process":4}],18:[function(require,module,exports){
 /** @license React v0.11.3
  * scheduler-tracing.production.min.js
  *
@@ -22972,7 +22999,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 
 'use strict';Object.defineProperty(exports,"__esModule",{value:!0});var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unstable_clear=function(a){return a()};exports.unstable_getCurrent=function(){return null};exports.unstable_getThreadID=function(){return++b};exports.unstable_trace=function(a,d,c){return c()};exports.unstable_wrap=function(a){return a};exports.unstable_subscribe=function(){};exports.unstable_unsubscribe=function(){};
 
-},{}],17:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 (function (process,global){
 /** @license React v0.11.3
  * scheduler.development.js
@@ -23610,7 +23637,7 @@ exports.unstable_shouldYield = unstable_shouldYield;
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":4}],18:[function(require,module,exports){
+},{"_process":4}],20:[function(require,module,exports){
 (function (global){
 /** @license React v0.11.3
  * scheduler.production.min.js
@@ -23635,7 +23662,7 @@ b=c.previous;b.next=c.previous=a;a.next=c;a.previous=b}return a};exports.unstabl
 exports.unstable_shouldYield=function(){return!f&&(null!==d&&d.expirationTime<l||w())};
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],19:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -23646,7 +23673,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/scheduler.development.js":17,"./cjs/scheduler.production.min.js":18,"_process":4}],20:[function(require,module,exports){
+},{"./cjs/scheduler.development.js":19,"./cjs/scheduler.production.min.js":20,"_process":4}],22:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -23657,7 +23684,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/scheduler-tracing.development.js":15,"./cjs/scheduler-tracing.production.min.js":16,"_process":4}],21:[function(require,module,exports){
+},{"./cjs/scheduler-tracing.development.js":17,"./cjs/scheduler-tracing.production.min.js":18,"_process":4}],23:[function(require,module,exports){
 "use strict";
 
 function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
@@ -23976,7 +24003,7 @@ function (_PureComponent) {
 
 exports.default = Popover;
 
-},{"./PopoverContent":22,"./uniqueId":24,"react":14,"react-button-a11y":7,"react-dom":11}],22:[function(require,module,exports){
+},{"./PopoverContent":24,"./uniqueId":26,"react":16,"react-button-a11y":7,"react-dom":11}],24:[function(require,module,exports){
 "use strict";
 
 function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
@@ -23988,7 +24015,7 @@ exports.default = exports.PopoverContent = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _withForwardedRef = _interopRequireDefault(require("./withForwardedRef"));
+var _reactWithForwardedRef = _interopRequireDefault(require("react-with-forwarded-ref"));
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -24167,11 +24194,11 @@ function (_PureComponent) {
 
 exports.PopoverContent = PopoverContent;
 
-var _default = (0, _withForwardedRef.default)(PopoverContent);
+var _default = (0, _reactWithForwardedRef.default)(PopoverContent);
 
 exports.default = _default;
 
-},{"./withForwardedRef":25,"react":14}],23:[function(require,module,exports){
+},{"react":16,"react-with-forwarded-ref":12}],25:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24200,7 +24227,7 @@ function _interopRequireDefault(obj) {
   };
 }
 
-},{"./Popover":21,"./PopoverContent":22}],24:[function(require,module,exports){
+},{"./Popover":23,"./PopoverContent":24}],26:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24220,72 +24247,4 @@ var uniqueId = function uniqueId() {
 var _default = uniqueId;
 exports.default = _default;
 
-},{}],25:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-function _interopRequireWildcard(obj) {
-  if (obj && obj.__esModule) {
-    return obj;
-  } else {
-    var newObj = {};
-
-    if (obj != null) {
-      for (var key in obj) {
-        if (Object.prototype.hasOwnProperty.call(obj, key)) {
-          var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};
-
-          if (desc.get || desc.set) {
-            Object.defineProperty(newObj, key, desc);
-          } else {
-            newObj[key] = obj[key];
-          }
-        }
-      }
-    }
-
-    newObj.default = obj;
-    return newObj;
-  }
-}
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-var withForwardedRef = function withForwardedRef(Comp) {
-  var handle = function handle(props, ref) {
-    return _react.default.createElement(Comp, _extends({}, props, {
-      forwardedRef: ref
-    }));
-  };
-
-  var name = Comp.displayName || Comp.name || 'Component';
-  handle.displayName = "withForwardedRef(".concat(name, ")");
-  return (0, _react.forwardRef)(handle);
-};
-
-var _default = withForwardedRef;
-exports.default = _default;
-
-},{"react":14}]},{},[1]);
+},{}]},{},[1]);

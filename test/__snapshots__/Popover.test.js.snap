@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popover renders 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-label="Click me"
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  />
+</span>
+`;
+
+exports[`Popover renders with PopoverContent 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-label="Click me"
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  />
+</span>
+`;
+
+exports[`Popover renders with actual button for trigger 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-label="Click me"
+    aria-owns="mockId"
+    element="button"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  />
+</span>
+`;
