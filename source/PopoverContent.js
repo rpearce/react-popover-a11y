@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import withForwardedRef from './withForwardedRef'
+import withForwardedRef from 'react-with-forwarded-ref'
 
 export class PopoverContent extends PureComponent {
   componentDidMount() {
