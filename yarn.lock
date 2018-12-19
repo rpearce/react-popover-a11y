@@ -5001,12 +5001,13 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-button-a11y@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-button-a11y/-/react-button-a11y-1.0.0.tgz#db0dd3cc616064ce329dbee4a904d80f6c321f1e"
-  integrity sha512-dt2HhphFrCijjSf8sIqrmVDzhUjz7apxXTwmtpJdz6vTAAyzKFxwTco0LUoi1WHou1LbuzN92ZN/xtixftsCLA==
+react-button-a11y@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-button-a11y/-/react-button-a11y-1.0.1.tgz#188d4b1caf43736857913f5567e36188e7543746"
+  integrity sha512-2rc1vEeixTjqoPVPdi3Yuj+F6gKMEH9fNddvivsPkyt5v2tJ2VW4jSd28osw4NEOOmMcdt1fDcJoksrGekcoFw==
   dependencies:
     "@babel/polyfill" "^7.0.0"
+    react-with-forwarded-ref "^0.1.0"
 
 react-dom@^16.6.3:
   version "16.6.3"
