@@ -16,7 +16,156 @@ describe('Popover', () => {
       <PopoverA11y
         content={content}
         isOpen={false}
-        label="Click me"
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, top', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        top
+        content={content}
+        isOpen={false}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, top right', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        top
+        right
+        content={content}
+        isOpen={false}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, right', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        right
+        content={content}
+        isOpen={false}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, bottom right', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        bottom
+        right
+        content={content}
+        isOpen={false}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, bottom', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        bottom
+        right
+        content={content}
+        isOpen={false}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, bottom left', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        bottom
+        left
+        content={content}
+        isOpen={false}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, left', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        left
+        content={content}
+        isOpen={false}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, top left', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        top
+        left
+        content={content}
+        isOpen={false}
+        offset={10}
         onClose={jest.fn()}
         onOpen={jest.fn()}
         trigger={trigger}
@@ -33,7 +182,190 @@ describe('Popover', () => {
       <PopoverA11y
         content={content}
         isOpen={true}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, open with label', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div />
+    const wrapper = mount(
+      <PopoverA11y
+        content={content}
+        isOpen={true}
+        offset={10}
         label="Click me"
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, open & top', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        top
+        content={content}
+        isOpen={true}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, open & top right', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        top
+        right
+        content={content}
+        isOpen={true}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, open & right', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        right
+        content={content}
+        isOpen={true}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, open & bottom right', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        bottom
+        right
+        content={content}
+        isOpen={true}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, open & bottom', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        bottom
+        right
+        content={content}
+        isOpen={true}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, open & bottom left', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        bottom
+        left
+        content={content}
+        isOpen={true}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, open & left', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        left
+        content={content}
+        isOpen={true}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, open & top left', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = shallow(
+      <PopoverA11y
+        top
+        left
+        content={content}
+        isOpen={true}
+        offset={10}
+        onClose={jest.fn()}
+        onOpen={jest.fn()}
+        trigger={trigger}
+      />
+    )
+    const tree = toJson(wrapper)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders, open with NO offset', () => {
+    const content = <div>This is some content</div>
+    const trigger = <div>Trigger</div>
+    const wrapper = mount(
+      <PopoverA11y
+        content={content}
+        isOpen={true}
         onClose={jest.fn()}
         onOpen={jest.fn()}
         trigger={trigger}
@@ -54,7 +386,6 @@ describe('Popover', () => {
       <PopoverA11y
         content={content}
         isOpen={false}
-        label="Click me"
         onClose={jest.fn()}
         onOpen={jest.fn()}
         trigger={trigger}
@@ -75,7 +406,6 @@ describe('Popover', () => {
       <PopoverA11y
         content={content}
         isOpen={true}
-        label="Click me"
         onClose={jest.fn()}
         onOpen={jest.fn()}
         trigger={trigger}
@@ -96,7 +426,6 @@ describe('Popover', () => {
       <PopoverA11y
         content={content}
         isOpen={false}
-        label="Click me"
         onClose={jest.fn()}
         onOpen={jest.fn()}
         trigger={trigger}
@@ -104,6 +433,52 @@ describe('Popover', () => {
     )
     const tree = toJson(wrapper)
     expect(tree).toMatchSnapshot()
+  })
+
+  describe('componentDidMount', () => {
+
+    it('appends element to the DOM', () => {
+      const appendSpy = jest.spyOn(document.body, 'appendChild')
+      const content = <div>This is some content</div>
+      const trigger = <button>Trigger</button>
+      const wrapper = mount(
+        <PopoverA11y
+          content={content}
+          isOpen={false}
+          onClose={jest.fn()}
+          onOpen={jest.fn()}
+          trigger={trigger}
+        />
+      )
+      const instance = wrapper.instance()
+      expect(appendSpy).toHaveBeenCalledWith(instance.el)
+    })
+
+  })
+
+  describe('componentWillUnmount', () => {
+
+    //it('calls teardown & removes element from the DOM', () => {
+    //  const removeSpy = jest.spyOn(document.body, 'removeChild')
+    //  const content = <div>This is some content</div>
+    //  const trigger = <button>Trigger</button>
+    //  const wrapper = mount(
+    //    <PopoverA11y
+    //      content={content}
+    //      isOpen={false}
+    //      onClose={jest.fn()}
+    //      onOpen={jest.fn()}
+    //      trigger={trigger}
+    //    />
+    //  )
+    //  const instance = wrapper.instance()
+
+    //  jest.spyOn(instance, 'teardown')
+
+    //  expect(instance.teardown).toHaveBeenCalled()
+    //  expect(removeSpy).toHaveBeenCalledWith(instance.el)
+    //})
+
   })
 
   describe('componentDidUpdate', () => {
@@ -121,7 +496,6 @@ describe('Popover', () => {
           <PopoverA11y
             content={content}
             isOpen={false}
-            label="Click me"
             onClose={jest.fn()}
             onOpen={jest.fn()}
             trigger={trigger}
@@ -153,7 +527,6 @@ describe('Popover', () => {
           <PopoverA11y
             content={content}
             isOpen={false}
-            label="Click me"
             onClose={jest.fn()}
             onOpen={jest.fn()}
             trigger={trigger}
@@ -187,7 +560,6 @@ describe('Popover', () => {
           <PopoverA11y
             content={content}
             isOpen={true}
-            label="Click me"
             onClose={jest.fn()}
             onOpen={jest.fn()}
             trigger={trigger}
@@ -223,7 +595,6 @@ describe('Popover', () => {
           <PopoverA11y
             content={content}
             isOpen={false}
-            label="Click me"
             onClose={jest.fn()}
             onOpen={jest.fn()}
             trigger={trigger}
@@ -253,7 +624,6 @@ describe('Popover', () => {
           <PopoverA11y
             content={content}
             isOpen={false}
-            label="Click me"
             onClose={jest.fn()}
             onOpen={jest.fn()}
             trigger={trigger}
@@ -287,7 +657,6 @@ describe('Popover', () => {
         <PopoverA11y
           content={content}
           isOpen={false}
-          label="Click me"
           onClose={jest.fn()}
           onOpen={jest.fn()}
           trigger={trigger}
@@ -295,16 +664,18 @@ describe('Popover', () => {
       )
       const instance = wrapper.instance()
 
-      const listenSpy = jest.spyOn(document, 'addEventListener')
-      const appendSpy = jest.spyOn(document.body, 'appendChild')
+      const docListenSpy = jest.spyOn(document, 'addEventListener')
+      const winListenSpy = jest.spyOn(window, 'addEventListener')
 
       wrapper.setProps({ isOpen: true })
 
-      expect(listenSpy.mock.calls).toEqual([
+      expect(docListenSpy.mock.calls).toEqual([
         [ 'click', instance.handleDocumentClick ],
         [ 'keydown', instance.handleKeyDown ]
       ])
-      expect(appendSpy).toHaveBeenCalledWith(instance.el)
+      expect(winListenSpy.mock.calls[3]).toEqual(
+        [ 'resize', instance.handleResize ]
+      )
     })
 
   })
@@ -322,7 +693,6 @@ describe('Popover', () => {
         <PopoverA11y
           content={content}
           isOpen={false}
-          label="Click me"
           onClose={jest.fn()}
           onOpen={jest.fn()}
           trigger={trigger}
@@ -332,15 +702,17 @@ describe('Popover', () => {
 
       wrapper.setProps({ isOpen: true })
 
-      const listenSpy = jest.spyOn(document, 'addEventListener')
-      const removeSpy = jest.spyOn(document.body, 'removeChild')
+      const docListenSpy = jest.spyOn(document, 'removeEventListener')
+      const winListenSpy = jest.spyOn(window, 'removeEventListener')
 
       wrapper.setProps({ isOpen: false })
 
-      expect(removeSpy).toHaveBeenCalledWith(instance.el)
-      expect(listenSpy.mock.calls).toEqual([
-        [ 'click', instance.handleDocumentClick ],
-        [ 'keydown', instance.handleKeyDown ]
+      expect(winListenSpy.mock.calls[2]).toEqual([
+        'resize', instance.handleResize
+      ])
+      expect(docListenSpy.mock.calls).toEqual([
+        [ 'keydown', instance.handleKeyDown ],
+        [ 'click', instance.handleDocumentClick ]
       ])
     })
 
@@ -363,7 +735,6 @@ describe('Popover', () => {
           <PopoverA11y
             content={content}
             isOpen={false}
-            label="Click me"
             onClose={onClose}
             onOpen={onOpen}
             trigger={trigger}
@@ -394,7 +765,6 @@ describe('Popover', () => {
           <PopoverA11y
             content={content}
             isOpen={false}
-            label="Click me"
             onClose={onClose}
             onOpen={onOpen}
             trigger={trigger}
@@ -427,7 +797,6 @@ describe('Popover', () => {
           <PopoverA11y
             content={content}
             isOpen={false}
-            label="Click me"
             onClose={onClose}
             onOpen={jest.fn()}
             trigger={trigger}
@@ -460,7 +829,6 @@ describe('Popover', () => {
           <PopoverA11y
             content={content}
             isOpen={false}
-            label="Click me"
             onClose={onClose}
             onOpen={jest.fn()}
             trigger={trigger}
@@ -493,7 +861,6 @@ describe('Popover', () => {
           <PopoverA11y
             content={content}
             isOpen={false}
-            label="Click me"
             onClose={onClose}
             onOpen={jest.fn()}
             trigger={trigger}
@@ -527,7 +894,6 @@ describe('Popover', () => {
           <PopoverA11y
             content={content}
             isOpen={false}
-            label="Click me"
             onClose={onClose}
             onOpen={jest.fn()}
             trigger={trigger}
@@ -563,7 +929,6 @@ describe('Popover', () => {
             <PopoverA11y
               content={content}
               isOpen={false}
-              label="Click me"
               onClose={onClose}
               onOpen={jest.fn()}
               trigger={trigger}
@@ -600,7 +965,6 @@ describe('Popover', () => {
             <PopoverA11y
               content={content}
               isOpen={false}
-              label="Click me"
               onClose={onClose}
               onOpen={jest.fn()}
               trigger={trigger}
@@ -637,7 +1001,6 @@ describe('Popover', () => {
             <PopoverA11y
               content={content}
               isOpen={false}
-              label="Click me"
               onClose={onClose}
               onOpen={jest.fn()}
               trigger={trigger}
@@ -674,7 +1037,6 @@ describe('Popover', () => {
             <PopoverA11y
               content={content}
               isOpen={false}
-              label="Click me"
               onClose={onClose}
               onOpen={jest.fn()}
               trigger={trigger}
@@ -697,6 +1059,31 @@ describe('Popover', () => {
 
       })
 
+    })
+
+  })
+
+  describe('handleResize', () => {
+
+    it('calls forceUpdate on resize', () => {
+      const onClose = jest.fn()
+      const content = <div>This is some content</div>
+      const trigger = <button>Trigger</button>
+      const wrapper = mount(
+        <PopoverA11y
+          content={content}
+          isOpen={false}
+          onClose={onClose}
+          onOpen={jest.fn()}
+          trigger={trigger}
+        />
+      )
+      const instance = wrapper.instance()
+      const updateSpy = jest.spyOn(instance, 'forceUpdate')
+
+      instance.handleResize()
+
+      expect(updateSpy).toHaveBeenCalled()
     })
 
   })

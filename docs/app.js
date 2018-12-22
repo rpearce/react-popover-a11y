@@ -21,28 +21,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-var contentStyle = {
-  backgroundColor: '#fff',
-  border: '1px solid #ccc',
-  padding: '1em 2em'
-};
-var triggerStyle = {
-  backgroundColor: '#0099ff',
-  borderRadius: '3px',
-  display: 'inline-block',
-  height: '18px',
-  marginLeft: '1em',
-  verticalAlign: 'middle',
-  width: '18px'
-};
 
 var App =
 /*#__PURE__*/
@@ -50,17 +35,54 @@ function (_Component) {
   _inherits(App, _Component);
 
   function App() {
+    _classCallCheck(this, App);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(App).apply(this, arguments));
+  }
+
+  _createClass(App, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_react.Fragment, null, _react.default.createElement("div", {
+        className: "example top left"
+      }, _react.default.createElement(BottomRight, null)), _react.default.createElement("div", {
+        className: "example top middleX"
+      }, _react.default.createElement(Bottom, null)), _react.default.createElement("div", {
+        className: "example top right"
+      }, _react.default.createElement(BottomLeft, null)), _react.default.createElement("div", {
+        className: "example right middleY"
+      }, _react.default.createElement(Left, null)), _react.default.createElement("div", {
+        className: "example bottom right"
+      }, _react.default.createElement(TopLeft, null)), _react.default.createElement("div", {
+        className: "example bottom middleX"
+      }, _react.default.createElement(Top, null)), _react.default.createElement("div", {
+        className: "example bottom left"
+      }, _react.default.createElement(TopRight, null)), _react.default.createElement("div", {
+        className: "example left middleY"
+      }, _react.default.createElement(Right, null)));
+    }
+  }]);
+
+  return App;
+}(_react.Component);
+
+var BottomRight =
+/*#__PURE__*/
+function (_Component2) {
+  _inherits(BottomRight, _Component2);
+
+  function BottomRight() {
     var _getPrototypeOf2;
 
     var _this;
 
-    _classCallCheck(this, App);
+    _classCallCheck(this, BottomRight);
 
     for (var _len = arguments.length, params = new Array(_len), _key = 0; _key < _len; _key++) {
       params[_key] = arguments[_key];
     }
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(params)));
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(BottomRight)).call.apply(_getPrototypeOf2, [this].concat(params)));
     _this.handleClose = _this.handleClose.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleOpen = _this.handleOpen.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.state = {
@@ -69,7 +91,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(App, [{
+  _createClass(BottomRight, [{
     key: "handleClose",
     value: function handleClose() {
       this.setState({
@@ -89,25 +111,499 @@ function (_Component) {
       var isOpen = this.state.isOpen;
 
       var content = _react.default.createElement("div", {
-        style: contentStyle
-      }, "This is some content");
+        className: "content"
+      }, "Bottom right content");
 
       var trigger = _react.default.createElement("div", {
-        style: triggerStyle
-      });
+        className: "btn"
+      }, "Bottom right");
 
-      return _react.default.createElement("div", null, "(click this or interact via keyboard)", _react.default.createElement(_.default, {
+      return _react.default.createElement(_.default, {
+        bottom: true,
+        right: true,
         content: content,
         isOpen: isOpen,
-        label: "Click me",
+        offset: 10,
         onClose: this.handleClose,
         onOpen: this.handleOpen,
         trigger: trigger
-      }));
+      });
     }
   }]);
 
-  return App;
+  return BottomRight;
+}(_react.Component);
+
+var Bottom =
+/*#__PURE__*/
+function (_Component3) {
+  _inherits(Bottom, _Component3);
+
+  function Bottom() {
+    var _getPrototypeOf3;
+
+    var _this2;
+
+    _classCallCheck(this, Bottom);
+
+    for (var _len2 = arguments.length, params = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      params[_key2] = arguments[_key2];
+    }
+
+    _this2 = _possibleConstructorReturn(this, (_getPrototypeOf3 = _getPrototypeOf(Bottom)).call.apply(_getPrototypeOf3, [this].concat(params)));
+    _this2.handleClose = _this2.handleClose.bind(_assertThisInitialized(_assertThisInitialized(_this2)));
+    _this2.handleOpen = _this2.handleOpen.bind(_assertThisInitialized(_assertThisInitialized(_this2)));
+    _this2.state = {
+      isOpen: false
+    };
+    return _this2;
+  }
+
+  _createClass(Bottom, [{
+    key: "handleClose",
+    value: function handleClose() {
+      this.setState({
+        isOpen: false
+      });
+    }
+  }, {
+    key: "handleOpen",
+    value: function handleOpen() {
+      this.setState({
+        isOpen: true
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var isOpen = this.state.isOpen;
+
+      var content = _react.default.createElement("div", {
+        className: "content"
+      }, "Bottom content");
+
+      var trigger = _react.default.createElement("div", {
+        className: "btn"
+      }, "Bottom");
+
+      return _react.default.createElement(_.default, {
+        bottom: true,
+        content: content,
+        isOpen: isOpen,
+        offset: 10,
+        onClose: this.handleClose,
+        onOpen: this.handleOpen,
+        trigger: trigger
+      });
+    }
+  }]);
+
+  return Bottom;
+}(_react.Component);
+
+var BottomLeft =
+/*#__PURE__*/
+function (_Component4) {
+  _inherits(BottomLeft, _Component4);
+
+  function BottomLeft() {
+    var _getPrototypeOf4;
+
+    var _this3;
+
+    _classCallCheck(this, BottomLeft);
+
+    for (var _len3 = arguments.length, params = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+      params[_key3] = arguments[_key3];
+    }
+
+    _this3 = _possibleConstructorReturn(this, (_getPrototypeOf4 = _getPrototypeOf(BottomLeft)).call.apply(_getPrototypeOf4, [this].concat(params)));
+    _this3.handleClose = _this3.handleClose.bind(_assertThisInitialized(_assertThisInitialized(_this3)));
+    _this3.handleOpen = _this3.handleOpen.bind(_assertThisInitialized(_assertThisInitialized(_this3)));
+    _this3.state = {
+      isOpen: false
+    };
+    return _this3;
+  }
+
+  _createClass(BottomLeft, [{
+    key: "handleClose",
+    value: function handleClose() {
+      this.setState({
+        isOpen: false
+      });
+    }
+  }, {
+    key: "handleOpen",
+    value: function handleOpen() {
+      this.setState({
+        isOpen: true
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var isOpen = this.state.isOpen;
+
+      var content = _react.default.createElement("div", {
+        className: "content"
+      }, "Bottom left content");
+
+      var trigger = _react.default.createElement("div", {
+        className: "btn"
+      }, "Bottom left");
+
+      return _react.default.createElement(_.default, {
+        bottom: true,
+        left: true,
+        content: content,
+        isOpen: isOpen,
+        offset: 10,
+        onClose: this.handleClose,
+        onOpen: this.handleOpen,
+        trigger: trigger
+      });
+    }
+  }]);
+
+  return BottomLeft;
+}(_react.Component);
+
+var Left =
+/*#__PURE__*/
+function (_Component5) {
+  _inherits(Left, _Component5);
+
+  function Left() {
+    var _getPrototypeOf5;
+
+    var _this4;
+
+    _classCallCheck(this, Left);
+
+    for (var _len4 = arguments.length, params = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+      params[_key4] = arguments[_key4];
+    }
+
+    _this4 = _possibleConstructorReturn(this, (_getPrototypeOf5 = _getPrototypeOf(Left)).call.apply(_getPrototypeOf5, [this].concat(params)));
+    _this4.handleClose = _this4.handleClose.bind(_assertThisInitialized(_assertThisInitialized(_this4)));
+    _this4.handleOpen = _this4.handleOpen.bind(_assertThisInitialized(_assertThisInitialized(_this4)));
+    _this4.state = {
+      isOpen: false
+    };
+    return _this4;
+  }
+
+  _createClass(Left, [{
+    key: "handleClose",
+    value: function handleClose() {
+      this.setState({
+        isOpen: false
+      });
+    }
+  }, {
+    key: "handleOpen",
+    value: function handleOpen() {
+      this.setState({
+        isOpen: true
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var isOpen = this.state.isOpen;
+
+      var content = _react.default.createElement("div", {
+        className: "content"
+      }, "Left content");
+
+      var trigger = _react.default.createElement("div", {
+        className: "btn"
+      }, "Left");
+
+      return _react.default.createElement(_.default, {
+        left: true,
+        content: content,
+        isOpen: isOpen,
+        offset: 10,
+        onClose: this.handleClose,
+        onOpen: this.handleOpen,
+        trigger: trigger
+      });
+    }
+  }]);
+
+  return Left;
+}(_react.Component);
+
+var TopLeft =
+/*#__PURE__*/
+function (_Component6) {
+  _inherits(TopLeft, _Component6);
+
+  function TopLeft() {
+    var _getPrototypeOf6;
+
+    var _this5;
+
+    _classCallCheck(this, TopLeft);
+
+    for (var _len5 = arguments.length, params = new Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+      params[_key5] = arguments[_key5];
+    }
+
+    _this5 = _possibleConstructorReturn(this, (_getPrototypeOf6 = _getPrototypeOf(TopLeft)).call.apply(_getPrototypeOf6, [this].concat(params)));
+    _this5.handleClose = _this5.handleClose.bind(_assertThisInitialized(_assertThisInitialized(_this5)));
+    _this5.handleOpen = _this5.handleOpen.bind(_assertThisInitialized(_assertThisInitialized(_this5)));
+    _this5.state = {
+      isOpen: false
+    };
+    return _this5;
+  }
+
+  _createClass(TopLeft, [{
+    key: "handleClose",
+    value: function handleClose() {
+      this.setState({
+        isOpen: false
+      });
+    }
+  }, {
+    key: "handleOpen",
+    value: function handleOpen() {
+      this.setState({
+        isOpen: true
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var isOpen = this.state.isOpen;
+
+      var content = _react.default.createElement("div", {
+        className: "content"
+      }, "Top left content");
+
+      var trigger = _react.default.createElement("div", {
+        className: "btn"
+      }, "Top left");
+
+      return _react.default.createElement(_.default, {
+        top: true,
+        left: true,
+        content: content,
+        isOpen: isOpen,
+        offset: 10,
+        onClose: this.handleClose,
+        onOpen: this.handleOpen,
+        trigger: trigger
+      });
+    }
+  }]);
+
+  return TopLeft;
+}(_react.Component);
+
+var Top =
+/*#__PURE__*/
+function (_Component7) {
+  _inherits(Top, _Component7);
+
+  function Top() {
+    var _getPrototypeOf7;
+
+    var _this6;
+
+    _classCallCheck(this, Top);
+
+    for (var _len6 = arguments.length, params = new Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+      params[_key6] = arguments[_key6];
+    }
+
+    _this6 = _possibleConstructorReturn(this, (_getPrototypeOf7 = _getPrototypeOf(Top)).call.apply(_getPrototypeOf7, [this].concat(params)));
+    _this6.handleClose = _this6.handleClose.bind(_assertThisInitialized(_assertThisInitialized(_this6)));
+    _this6.handleOpen = _this6.handleOpen.bind(_assertThisInitialized(_assertThisInitialized(_this6)));
+    _this6.state = {
+      isOpen: false
+    };
+    return _this6;
+  }
+
+  _createClass(Top, [{
+    key: "handleClose",
+    value: function handleClose() {
+      this.setState({
+        isOpen: false
+      });
+    }
+  }, {
+    key: "handleOpen",
+    value: function handleOpen() {
+      this.setState({
+        isOpen: true
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var isOpen = this.state.isOpen;
+
+      var content = _react.default.createElement("div", {
+        className: "content"
+      }, "Top content");
+
+      var trigger = _react.default.createElement("div", {
+        className: "btn"
+      }, "Top");
+
+      return _react.default.createElement(_.default, {
+        top: true,
+        content: content,
+        isOpen: isOpen,
+        offset: 10,
+        onClose: this.handleClose,
+        onOpen: this.handleOpen,
+        trigger: trigger
+      });
+    }
+  }]);
+
+  return Top;
+}(_react.Component);
+
+var TopRight =
+/*#__PURE__*/
+function (_Component8) {
+  _inherits(TopRight, _Component8);
+
+  function TopRight() {
+    var _getPrototypeOf8;
+
+    var _this7;
+
+    _classCallCheck(this, TopRight);
+
+    for (var _len7 = arguments.length, params = new Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
+      params[_key7] = arguments[_key7];
+    }
+
+    _this7 = _possibleConstructorReturn(this, (_getPrototypeOf8 = _getPrototypeOf(TopRight)).call.apply(_getPrototypeOf8, [this].concat(params)));
+    _this7.handleClose = _this7.handleClose.bind(_assertThisInitialized(_assertThisInitialized(_this7)));
+    _this7.handleOpen = _this7.handleOpen.bind(_assertThisInitialized(_assertThisInitialized(_this7)));
+    _this7.state = {
+      isOpen: false
+    };
+    return _this7;
+  }
+
+  _createClass(TopRight, [{
+    key: "handleClose",
+    value: function handleClose() {
+      this.setState({
+        isOpen: false
+      });
+    }
+  }, {
+    key: "handleOpen",
+    value: function handleOpen() {
+      this.setState({
+        isOpen: true
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var isOpen = this.state.isOpen;
+
+      var content = _react.default.createElement("div", {
+        className: "content"
+      }, "Top right content");
+
+      var trigger = _react.default.createElement("div", {
+        className: "btn"
+      }, "Top right");
+
+      return _react.default.createElement(_.default, {
+        top: true,
+        right: true,
+        content: content,
+        isOpen: isOpen,
+        offset: 10,
+        onClose: this.handleClose,
+        onOpen: this.handleOpen,
+        trigger: trigger
+      });
+    }
+  }]);
+
+  return TopRight;
+}(_react.Component);
+
+var Right =
+/*#__PURE__*/
+function (_Component9) {
+  _inherits(Right, _Component9);
+
+  function Right() {
+    var _getPrototypeOf9;
+
+    var _this8;
+
+    _classCallCheck(this, Right);
+
+    for (var _len8 = arguments.length, params = new Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {
+      params[_key8] = arguments[_key8];
+    }
+
+    _this8 = _possibleConstructorReturn(this, (_getPrototypeOf9 = _getPrototypeOf(Right)).call.apply(_getPrototypeOf9, [this].concat(params)));
+    _this8.handleClose = _this8.handleClose.bind(_assertThisInitialized(_assertThisInitialized(_this8)));
+    _this8.handleOpen = _this8.handleOpen.bind(_assertThisInitialized(_assertThisInitialized(_this8)));
+    _this8.state = {
+      isOpen: false
+    };
+    return _this8;
+  }
+
+  _createClass(Right, [{
+    key: "handleClose",
+    value: function handleClose() {
+      this.setState({
+        isOpen: false
+      });
+    }
+  }, {
+    key: "handleOpen",
+    value: function handleOpen() {
+      this.setState({
+        isOpen: true
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var isOpen = this.state.isOpen;
+
+      var content = _react.default.createElement("div", {
+        className: "content"
+      }, "Right content");
+
+      var trigger = _react.default.createElement("div", {
+        className: "btn"
+      }, "Right");
+
+      return _react.default.createElement(_.default, {
+        right: true,
+        content: content,
+        isOpen: isOpen,
+        offset: 10,
+        onClose: this.handleClose,
+        onOpen: this.handleOpen,
+        trigger: trigger
+      });
+    }
+  }]);
+
+  return Right;
 }(_react.Component);
 
 var container = document.querySelector('[data-app]');
@@ -23700,6 +24196,8 @@ var _reactDom = require("react-dom");
 
 var _reactButtonA11y = _interopRequireDefault(require("react-button-a11y"));
 
+var _throttle = _interopRequireDefault(require("./throttle"));
+
 var _uniqueId = _interopRequireDefault(require("./uniqueId"));
 
 var _PopoverContent = _interopRequireDefault(require("./PopoverContent"));
@@ -23856,6 +24354,7 @@ function (_PureComponent) {
     _this.handleClickTrigger = _this.handleClickTrigger.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleDocumentClick = _this.handleDocumentClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleKeyDown = _this.handleKeyDown.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleResize = (0, _throttle.default)(_this.handleResize.bind(_assertThisInitialized(_assertThisInitialized(_this))), 50);
     _this.el = document.createElement('div');
     _this.id = (0, _uniqueId.default)('popover-');
     _this.triggerRef = (0, _react.createRef)();
@@ -23864,6 +24363,11 @@ function (_PureComponent) {
   }
 
   _createClass(Popover, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      document.body.appendChild(this.el);
+    }
+  }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
       var isOpen = this.props.isOpen;
@@ -23882,6 +24386,8 @@ function (_PureComponent) {
       if (isOpen) {
         this.teardown();
       }
+
+      document.body.removeChild(this.el);
     }
   }, {
     key: "getTriggerRect",
@@ -23941,16 +24447,21 @@ function (_PureComponent) {
       }
     }
   }, {
+    key: "handleResize",
+    value: function handleResize() {
+      this.forceUpdate();
+    }
+  }, {
     key: "setup",
     value: function setup() {
       document.addEventListener('click', this.handleDocumentClick);
       document.addEventListener('keydown', this.handleKeyDown);
-      document.body.appendChild(this.el);
+      window.addEventListener('resize', this.handleResize);
     }
   }, {
     key: "teardown",
     value: function teardown() {
-      document.body.removeChild(this.el);
+      window.removeEventListener('resize', this.handleResize);
       document.removeEventListener('keydown', this.handleKeyDown);
       document.removeEventListener('click', this.handleDocumentClick);
     }
@@ -23978,18 +24489,24 @@ function (_PureComponent) {
     key: "renderPopover",
     value: function renderPopover() {
       var _this$props3 = this.props,
+          bottom = _this$props3.bottom,
           content = _this$props3.content,
           isOpen = _this$props3.isOpen,
-          label = _this$props3.label;
-
-      if (!isOpen) {
-        return null;
-      }
-
+          label = _this$props3.label,
+          left = _this$props3.left,
+          offset = _this$props3.offset,
+          right = _this$props3.right,
+          top = _this$props3.top;
       var cProps = {
+        bottom: bottom,
         id: this.id,
+        isOpen: isOpen,
         label: label,
+        left: left,
+        offset: offset,
         ref: this.popoverRef,
+        right: right,
+        top: top,
         triggerRect: this.getTriggerRect()
       };
 
@@ -24011,7 +24528,7 @@ function (_PureComponent) {
 
 exports.default = Popover;
 
-},{"./PopoverContent":24,"./uniqueId":26,"react":16,"react-button-a11y":7,"react-dom":11}],24:[function(require,module,exports){
+},{"./PopoverContent":24,"./throttle":26,"./uniqueId":27,"react":16,"react-button-a11y":7,"react-dom":11}],24:[function(require,module,exports){
 "use strict";
 
 function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
@@ -24191,61 +24708,159 @@ function _setPrototypeOf(o, p) {
   };
 
   return _setPrototypeOf(o, p);
-} // @TODO do this way better
-
+}
 
 var getStyle = function getStyle(_ref) {
-  var style = _ref.style,
-      t = _ref.triggerRect;
-  var left = t ? t.width * 0.75 + t.left : 0;
-  var top = t ? t.height * 0.75 + t.top : 0;
-  var position = 'fixed';
-  return Object.assign({}, {
-    zIndex: '999'
+  var dirBottom = _ref.dirBottom,
+      dirLeft = _ref.dirLeft,
+      dirRight = _ref.dirRight,
+      dirTop = _ref.dirTop,
+      height = _ref.height,
+      isOpen = _ref.isOpen,
+      _offset = _ref.offset,
+      style = _ref.style,
+      triggerRect = _ref.triggerRect,
+      width = _ref.width;
+  var zIndex = '999';
+  var initial = Object.assign({}, {
+    zIndex: zIndex
   }, style, {
-    left: left,
-    position: position,
-    top: top
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    opacity: isOpen ? 1 : 0,
+    visibility: isOpen ? 'visible' : 'hidden'
   });
+
+  if (!isOpen || !triggerRect) {
+    return initial;
+  }
+
+  var offset = _offset || 0;
+  var realTop = window.pageYOffset + triggerRect.top;
+  var realLeft = window.pageXOffset + triggerRect.left;
+  var toTop = {
+    top: realTop - height - offset
+  };
+  var toRight = {
+    left: realLeft + triggerRect.width + offset
+  };
+  var toBottom = {
+    top: realTop + triggerRect.height + offset
+  };
+  var toLeft = {
+    left: realLeft - width - offset
+  };
+  var toMiddleX = {
+    left: realLeft + triggerRect.width / 2 - width / 2
+  };
+  var toMiddleY = {
+    top: realTop + triggerRect.height / 2 - height / 2
+  };
+  var isOutsideTop = triggerRect.top - height <= 0;
+  var isOutsideRight = triggerRect.left + width >= window.innerWidth;
+  var isOutsideBottom = triggerRect.top + triggerRect.height + height >= window.innerHeight;
+  var isOutsideLeft = triggerRect.left - width <= 0;
+  return Object.assign({}, initial, toBottom, // default
+  toMiddleX, // default
+  dirTop && toTop, dirRight && toRight, dirBottom && toBottom, dirLeft && toLeft, (dirTop || dirBottom) && !dirLeft && !dirRight && toMiddleX, (dirRight || dirLeft) && !dirTop && !dirBottom && toMiddleY, isOutsideTop && toBottom, isOutsideRight && toLeft, isOutsideBottom && toTop, isOutsideLeft && toRight);
 };
 
 var PopoverContent =
 /*#__PURE__*/
-function (_PureComponent) {
-  _inherits(PopoverContent, _PureComponent);
+function (_Component) {
+  _inherits(PopoverContent, _Component);
 
   function PopoverContent() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, PopoverContent);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(PopoverContent).apply(this, arguments));
+    for (var _len = arguments.length, params = new Array(_len), _key = 0; _key < _len; _key++) {
+      params[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(PopoverContent)).call.apply(_getPrototypeOf2, [this].concat(params)));
+    _this.state = {
+      height: 0,
+      width: 0
+    };
+    return _this;
   }
 
   _createClass(PopoverContent, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this = this;
+      this.setDimensions();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      var _this2 = this;
 
+      this.setDimensions();
       setTimeout(function () {
-        _this.props.forwardedRef.current.focus();
+        var _this2$props = _this2.props,
+            forwardedRef = _this2$props.forwardedRef,
+            isOpen = _this2$props.isOpen;
+
+        if (!prevProps.isOpen && isOpen && forwardedRef && forwardedRef.current) {
+          forwardedRef.current.focus();
+        }
       }, 0);
+    }
+  }, {
+    key: "setDimensions",
+    value: function setDimensions() {
+      var current = this.props.forwardedRef.current,
+          _this$state = this.state,
+          height = _this$state.height,
+          width = _this$state.width;
+
+      if (height !== current.offsetHeight || width !== current.offsetWidth) {
+        this.setState({
+          height: current.offsetHeight,
+          width: current.offsetWidth
+        });
+      }
     }
   }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
+          dirBottom = _this$props.bottom,
           children = _this$props.children,
           forwardedRef = _this$props.forwardedRef,
           id = _this$props.id,
+          isOpen = _this$props.isOpen,
           label = _this$props.label,
+          dirLeft = _this$props.left,
+          offset = _this$props.offset,
+          dirRight = _this$props.right,
           style = _this$props.style,
+          dirTop = _this$props.top,
           triggerRect = _this$props.triggerRect,
-          rest = _objectWithoutProperties(_this$props, ["children", "forwardedRef", "id", "label", "style", "triggerRect"]);
+          rest = _objectWithoutProperties(_this$props, ["bottom", "children", "forwardedRef", "id", "isOpen", "label", "left", "offset", "right", "style", "top", "triggerRect"]),
+          _this$state2 = this.state,
+          height = _this$state2.height,
+          width = _this$state2.width;
 
       var newStyle = getStyle({
+        dirBottom: dirBottom,
+        dirLeft: dirLeft,
+        dirRight: dirRight,
+        dirTop: dirTop,
+        height: height,
+        isOpen: isOpen,
+        offset: offset,
         style: style,
-        triggerRect: triggerRect
+        triggerRect: triggerRect,
+        width: width
       });
       return _react.default.createElement("div", _extends({}, rest, {
+        "aria-hidden": !isOpen,
         "aria-label": label,
         id: id,
         ref: forwardedRef,
@@ -24257,7 +24872,7 @@ function (_PureComponent) {
   }]);
 
   return PopoverContent;
-}(_react.PureComponent);
+}(_react.Component);
 
 exports.PopoverContent = PopoverContent;
 
@@ -24295,6 +24910,30 @@ function _interopRequireDefault(obj) {
 }
 
 },{"./Popover":23,"./PopoverContent":24}],26:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var throttle = function throttle(callback, limit) {
+  var wait = false;
+  return function () {
+    if (!wait) {
+      callback.call();
+      wait = true;
+      setTimeout(function () {
+        wait = false;
+      }, limit);
+    }
+  };
+};
+
+var _default = throttle;
+exports.default = _default;
+
+},{}],27:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

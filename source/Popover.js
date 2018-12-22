@@ -1,6 +1,7 @@
 import React, { PureComponent, cloneElement, createRef } from 'react'
 import { createPortal } from 'react-dom'
 import ButtonA11y from 'react-button-a11y'
+import throttle from './throttle'
 import uniqueId from './uniqueId'
 
 import PopoverContent from './PopoverContent'
@@ -11,10 +12,15 @@ export default class Popover extends PureComponent {
     this.handleClickTrigger = this.handleClickTrigger.bind(this)
     this.handleDocumentClick = this.handleDocumentClick.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.handleResize = throttle(this.handleResize.bind(this), 50)
     this.el = document.createElement('div')
     this.id = uniqueId('popover-')
     this.triggerRef = createRef()
     this.popoverRef = createRef()
+  }
+
+  componentDidMount() {
+    document.body.appendChild(this.el)
   }
 
   componentDidUpdate(prevProps) {
@@ -33,6 +39,8 @@ export default class Popover extends PureComponent {
     if (isOpen) {
       this.teardown()
     }
+
+    document.body.removeChild(this.el)
   }
 
   getTriggerRect() {
@@ -86,14 +94,18 @@ export default class Popover extends PureComponent {
     }
   }
 
+  handleResize() {
+    this.forceUpdate()
+  }
+
   setup() {
     document.addEventListener('click', this.handleDocumentClick)
     document.addEventListener('keydown', this.handleKeyDown)
-    document.body.appendChild(this.el)
+    window.addEventListener('resize', this.handleResize)
   }
 
   teardown() {
-    document.body.removeChild(this.el)
+    window.removeEventListener('resize', this.handleResize)
     document.removeEventListener('keydown', this.handleKeyDown)
     document.removeEventListener('click', this.handleDocumentClick)
   }
@@ -121,16 +133,27 @@ export default class Popover extends PureComponent {
   }
 
   renderPopover() {
-    const { content, isOpen, label } = this.props
-
-    if (!isOpen) {
-      return null
-    }
+    const {
+      bottom,
+      content,
+      isOpen,
+      label,
+      left,
+      offset,
+      right,
+      top
+    } = this.props
 
     const cProps = {
+      bottom,
       id: this.id,
+      isOpen,
       label,
+      left,
+      offset,
       ref: this.popoverRef,
+      right,
+      top,
       triggerRect: this.getTriggerRect()
     }
 
