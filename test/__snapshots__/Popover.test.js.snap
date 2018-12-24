@@ -6,7 +6,6 @@ exports[`Popover renders 1`] = `
     aria-controls="mockId"
     aria-expanded={false}
     aria-haspopup={true}
-    aria-label="Click me"
     aria-owns="mockId"
     element="div"
     onClick={[Function]}
@@ -15,7 +14,25 @@ exports[`Popover renders 1`] = `
   </ForwardRef(withForwardedRef(ButtonA11y))>
   <Portal
     containerInfo={<div />}
-  />
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      id="mockId"
+      isOpen={false}
+      offset={10}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
 </span>
 `;
 
@@ -35,7 +52,6 @@ exports[`Popover renders with PopoverContent 1`] = `
     </ForwardRef(withForwardedRef(PopoverContent))>
   }
   isOpen={false}
-  label="Click me"
   onClose={[MockFunction]}
   onOpen={[MockFunction]}
   trigger={
@@ -49,7 +65,6 @@ exports[`Popover renders with PopoverContent 1`] = `
       aria-controls="mockId"
       aria-expanded={false}
       aria-haspopup={true}
-      aria-label="Click me"
       aria-owns="mockId"
       element="div"
       onClick={[Function]}
@@ -58,7 +73,6 @@ exports[`Popover renders with PopoverContent 1`] = `
         aria-controls="mockId"
         aria-expanded={false}
         aria-haspopup={true}
-        aria-label="Click me"
         aria-owns="mockId"
         element="div"
         forwardedRef={
@@ -67,7 +81,6 @@ exports[`Popover renders with PopoverContent 1`] = `
               aria-controls="mockId"
               aria-expanded="false"
               aria-haspopup="true"
-              aria-label="Click me"
               aria-owns="mockId"
               role="button"
               tabindex="0"
@@ -84,7 +97,6 @@ exports[`Popover renders with PopoverContent 1`] = `
           aria-controls="mockId"
           aria-expanded={false}
           aria-haspopup={true}
-          aria-label="Click me"
           aria-owns="mockId"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -96,8 +108,94 @@ exports[`Popover renders with PopoverContent 1`] = `
       </ButtonA11y>
     </ForwardRef(withForwardedRef(ButtonA11y))>
     <Portal
-      containerInfo={<div />}
-    />
+      containerInfo={
+        <div>
+          <div
+            aria-hidden="true"
+            id="mockId"
+            role="dialog"
+            style="z-index: 9999; position: absolute; top: 0px; left: 0px; opacity: 0; visibility: hidden;"
+            tabindex="-1"
+          >
+            <div>
+              This is some content
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <ForwardRef(withForwardedRef(PopoverContent))
+        id="mockId"
+        isOpen={false}
+        style={
+          Object {
+            "zIndex": "9999",
+          }
+        }
+        triggerRect={
+          Object {
+            "height": 0,
+            "left": 0,
+            "top": 0,
+            "width": 0,
+          }
+        }
+      >
+        <PopoverContent
+          forwardedRef={
+            Object {
+              "current": <div
+                aria-hidden="true"
+                id="mockId"
+                role="dialog"
+                style="z-index: 9999; position: absolute; top: 0px; left: 0px; opacity: 0; visibility: hidden;"
+                tabindex="-1"
+              >
+                <div>
+                  This is some content
+                </div>
+              </div>,
+            }
+          }
+          id="mockId"
+          isOpen={false}
+          style={
+            Object {
+              "zIndex": "9999",
+            }
+          }
+          triggerRect={
+            Object {
+              "height": 0,
+              "left": 0,
+              "top": 0,
+              "width": 0,
+            }
+          }
+        >
+          <div
+            aria-hidden={true}
+            id="mockId"
+            role="dialog"
+            style={
+              Object {
+                "left": 0,
+                "opacity": 0,
+                "position": "absolute",
+                "top": 0,
+                "visibility": "hidden",
+                "zIndex": "9999",
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              This is some content
+            </div>
+          </div>
+        </PopoverContent>
+      </ForwardRef(withForwardedRef(PopoverContent))>
+    </Portal>
   </span>
 </Popover>
 `;
@@ -118,7 +216,6 @@ exports[`Popover renders with PopoverContent, open 1`] = `
     </ForwardRef(withForwardedRef(PopoverContent))>
   }
   isOpen={true}
-  label="Click me"
   onClose={[MockFunction]}
   onOpen={[MockFunction]}
   trigger={
@@ -132,7 +229,6 @@ exports[`Popover renders with PopoverContent, open 1`] = `
       aria-controls="mockId"
       aria-expanded={true}
       aria-haspopup={true}
-      aria-label="Click me"
       aria-owns="mockId"
       element="div"
       onClick={[Function]}
@@ -141,7 +237,6 @@ exports[`Popover renders with PopoverContent, open 1`] = `
         aria-controls="mockId"
         aria-expanded={true}
         aria-haspopup={true}
-        aria-label="Click me"
         aria-owns="mockId"
         element="div"
         forwardedRef={
@@ -150,7 +245,6 @@ exports[`Popover renders with PopoverContent, open 1`] = `
               aria-controls="mockId"
               aria-expanded="true"
               aria-haspopup="true"
-              aria-label="Click me"
               aria-owns="mockId"
               role="button"
               tabindex="0"
@@ -167,7 +261,6 @@ exports[`Popover renders with PopoverContent, open 1`] = `
           aria-controls="mockId"
           aria-expanded={true}
           aria-haspopup={true}
-          aria-label="Click me"
           aria-owns="mockId"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -182,10 +275,10 @@ exports[`Popover renders with PopoverContent, open 1`] = `
       containerInfo={
         <div>
           <div
-            aria-label="Click me"
+            aria-hidden="false"
             id="mockId"
             role="dialog"
-            style="z-index: 9999; left: 0px; position: fixed; top: 0px;"
+            style="z-index: 9999; position: absolute; top: 0px; left: 0px; opacity: 1; visibility: visible;"
             tabindex="-1"
           >
             <div>
@@ -197,7 +290,7 @@ exports[`Popover renders with PopoverContent, open 1`] = `
     >
       <ForwardRef(withForwardedRef(PopoverContent))
         id="mockId"
-        label="Click me"
+        isOpen={true}
         style={
           Object {
             "zIndex": "9999",
@@ -216,10 +309,10 @@ exports[`Popover renders with PopoverContent, open 1`] = `
           forwardedRef={
             Object {
               "current": <div
-                aria-label="Click me"
+                aria-hidden="false"
                 id="mockId"
                 role="dialog"
-                style="z-index: 9999; left: 0px; position: fixed; top: 0px;"
+                style="z-index: 9999; position: absolute; top: 0px; left: 0px; opacity: 1; visibility: visible;"
                 tabindex="-1"
               >
                 <div>
@@ -229,7 +322,7 @@ exports[`Popover renders with PopoverContent, open 1`] = `
             }
           }
           id="mockId"
-          label="Click me"
+          isOpen={true}
           style={
             Object {
               "zIndex": "9999",
@@ -245,14 +338,16 @@ exports[`Popover renders with PopoverContent, open 1`] = `
           }
         >
           <div
-            aria-label="Click me"
+            aria-hidden={false}
             id="mockId"
             role="dialog"
             style={
               Object {
                 "left": 0,
-                "position": "fixed",
+                "opacity": 1,
+                "position": "absolute",
                 "top": 0,
+                "visibility": "visible",
                 "zIndex": "9999",
               }
             }
@@ -275,7 +370,6 @@ exports[`Popover renders with actual button for trigger 1`] = `
     aria-controls="mockId"
     aria-expanded={false}
     aria-haspopup={true}
-    aria-label="Click me"
     aria-owns="mockId"
     element="button"
     onClick={[Function]}
@@ -284,7 +378,481 @@ exports[`Popover renders with actual button for trigger 1`] = `
   </ForwardRef(withForwardedRef(ButtonA11y))>
   <Portal
     containerInfo={<div />}
-  />
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      id="mockId"
+      isOpen={false}
+      style={
+        Object {
+          "zIndex": "9999",
+        }
+      }
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, bottom 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      bottom={true}
+      id="mockId"
+      isOpen={false}
+      offset={10}
+      right={true}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, bottom left 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      bottom={true}
+      id="mockId"
+      isOpen={false}
+      left={true}
+      offset={10}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, bottom right 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      bottom={true}
+      id="mockId"
+      isOpen={false}
+      offset={10}
+      right={true}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, left 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      id="mockId"
+      isOpen={false}
+      left={true}
+      offset={10}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, open & bottom 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={true}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      bottom={true}
+      id="mockId"
+      isOpen={true}
+      offset={10}
+      right={true}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, open & bottom left 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={true}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      bottom={true}
+      id="mockId"
+      isOpen={true}
+      left={true}
+      offset={10}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, open & bottom right 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={true}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      bottom={true}
+      id="mockId"
+      isOpen={true}
+      offset={10}
+      right={true}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, open & left 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={true}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      id="mockId"
+      isOpen={true}
+      left={true}
+      offset={10}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, open & right 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={true}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      id="mockId"
+      isOpen={true}
+      offset={10}
+      right={true}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, open & top 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={true}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      id="mockId"
+      isOpen={true}
+      offset={10}
+      top={true}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, open & top left 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={true}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      id="mockId"
+      isOpen={true}
+      left={true}
+      offset={10}
+      top={true}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, open & top right 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={true}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      id="mockId"
+      isOpen={true}
+      offset={10}
+      right={true}
+      top={true}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
 </span>
 `;
 
@@ -296,7 +864,7 @@ exports[`Popover renders, open 1`] = `
     </div>
   }
   isOpen={true}
-  label="Click me"
+  offset={10}
   onClose={[MockFunction]}
   onOpen={[MockFunction]}
   trigger={
@@ -304,6 +872,298 @@ exports[`Popover renders, open 1`] = `
       Trigger
     </div>
   }
+>
+  <span>
+    <ForwardRef(withForwardedRef(ButtonA11y))
+      aria-controls="mockId"
+      aria-expanded={true}
+      aria-haspopup={true}
+      aria-owns="mockId"
+      element="div"
+      onClick={[Function]}
+    >
+      <ButtonA11y
+        aria-controls="mockId"
+        aria-expanded={true}
+        aria-haspopup={true}
+        aria-owns="mockId"
+        element="div"
+        forwardedRef={
+          Object {
+            "current": <div
+              aria-controls="mockId"
+              aria-expanded="true"
+              aria-haspopup="true"
+              aria-owns="mockId"
+              role="button"
+              tabindex="0"
+            >
+              Trigger
+            </div>,
+          }
+        }
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        strictMode={true}
+      >
+        <div
+          aria-controls="mockId"
+          aria-expanded={true}
+          aria-haspopup={true}
+          aria-owns="mockId"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex="0"
+        >
+          Trigger
+        </div>
+      </ButtonA11y>
+    </ForwardRef(withForwardedRef(ButtonA11y))>
+    <Portal
+      containerInfo={
+        <div>
+          <div
+            aria-hidden="false"
+            id="mockId"
+            role="dialog"
+            style="z-index: 999; position: absolute; top: 10px; left: 10px; opacity: 1; visibility: visible;"
+            tabindex="-1"
+          >
+            <div>
+              This is some content
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <ForwardRef(withForwardedRef(PopoverContent))
+        id="mockId"
+        isOpen={true}
+        offset={10}
+        triggerRect={
+          Object {
+            "height": 0,
+            "left": 0,
+            "top": 0,
+            "width": 0,
+          }
+        }
+      >
+        <PopoverContent
+          forwardedRef={
+            Object {
+              "current": <div
+                aria-hidden="false"
+                id="mockId"
+                role="dialog"
+                style="z-index: 999; position: absolute; top: 10px; left: 10px; opacity: 1; visibility: visible;"
+                tabindex="-1"
+              >
+                <div>
+                  This is some content
+                </div>
+              </div>,
+            }
+          }
+          id="mockId"
+          isOpen={true}
+          offset={10}
+          triggerRect={
+            Object {
+              "height": 0,
+              "left": 0,
+              "top": 0,
+              "width": 0,
+            }
+          }
+        >
+          <div
+            aria-hidden={false}
+            id="mockId"
+            role="dialog"
+            style={
+              Object {
+                "left": 10,
+                "opacity": 1,
+                "position": "absolute",
+                "top": 10,
+                "visibility": "visible",
+                "zIndex": "999",
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              This is some content
+            </div>
+          </div>
+        </PopoverContent>
+      </ForwardRef(withForwardedRef(PopoverContent))>
+    </Portal>
+  </span>
+</Popover>
+`;
+
+exports[`Popover renders, open with NO offset 1`] = `
+<Popover
+  content={
+    <div>
+      This is some content
+    </div>
+  }
+  isOpen={true}
+  onClose={[MockFunction]}
+  onOpen={[MockFunction]}
+  trigger={
+    <div>
+      Trigger
+    </div>
+  }
+>
+  <span>
+    <ForwardRef(withForwardedRef(ButtonA11y))
+      aria-controls="mockId"
+      aria-expanded={true}
+      aria-haspopup={true}
+      aria-owns="mockId"
+      element="div"
+      onClick={[Function]}
+    >
+      <ButtonA11y
+        aria-controls="mockId"
+        aria-expanded={true}
+        aria-haspopup={true}
+        aria-owns="mockId"
+        element="div"
+        forwardedRef={
+          Object {
+            "current": <div
+              aria-controls="mockId"
+              aria-expanded="true"
+              aria-haspopup="true"
+              aria-owns="mockId"
+              role="button"
+              tabindex="0"
+            >
+              Trigger
+            </div>,
+          }
+        }
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        strictMode={true}
+      >
+        <div
+          aria-controls="mockId"
+          aria-expanded={true}
+          aria-haspopup={true}
+          aria-owns="mockId"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex="0"
+        >
+          Trigger
+        </div>
+      </ButtonA11y>
+    </ForwardRef(withForwardedRef(ButtonA11y))>
+    <Portal
+      containerInfo={
+        <div>
+          <div
+            aria-hidden="false"
+            id="mockId"
+            role="dialog"
+            style="z-index: 999; position: absolute; top: 0px; left: 0px; opacity: 1; visibility: visible;"
+            tabindex="-1"
+          >
+            <div>
+              This is some content
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <ForwardRef(withForwardedRef(PopoverContent))
+        id="mockId"
+        isOpen={true}
+        triggerRect={
+          Object {
+            "height": 0,
+            "left": 0,
+            "top": 0,
+            "width": 0,
+          }
+        }
+      >
+        <PopoverContent
+          forwardedRef={
+            Object {
+              "current": <div
+                aria-hidden="false"
+                id="mockId"
+                role="dialog"
+                style="z-index: 999; position: absolute; top: 0px; left: 0px; opacity: 1; visibility: visible;"
+                tabindex="-1"
+              >
+                <div>
+                  This is some content
+                </div>
+              </div>,
+            }
+          }
+          id="mockId"
+          isOpen={true}
+          triggerRect={
+            Object {
+              "height": 0,
+              "left": 0,
+              "top": 0,
+              "width": 0,
+            }
+          }
+        >
+          <div
+            aria-hidden={false}
+            id="mockId"
+            role="dialog"
+            style={
+              Object {
+                "left": 0,
+                "opacity": 1,
+                "position": "absolute",
+                "top": 0,
+                "visibility": "visible",
+                "zIndex": "999",
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              This is some content
+            </div>
+          </div>
+        </PopoverContent>
+      </ForwardRef(withForwardedRef(PopoverContent))>
+    </Portal>
+  </span>
+</Popover>
+`;
+
+exports[`Popover renders, open with label 1`] = `
+<Popover
+  content={
+    <div>
+      This is some content
+    </div>
+  }
+  isOpen={true}
+  label="Click me"
+  offset={10}
+  onClose={[MockFunction]}
+  onOpen={[MockFunction]}
+  trigger={<div />}
 >
   <span>
     <ForwardRef(withForwardedRef(ButtonA11y))
@@ -332,9 +1192,7 @@ exports[`Popover renders, open 1`] = `
               aria-owns="mockId"
               role="button"
               tabindex="0"
-            >
-              Trigger
-            </div>,
+            />,
           }
         }
         onClick={[Function]}
@@ -351,19 +1209,18 @@ exports[`Popover renders, open 1`] = `
           onKeyDown={[Function]}
           role="button"
           tabIndex="0"
-        >
-          Trigger
-        </div>
+        />
       </ButtonA11y>
     </ForwardRef(withForwardedRef(ButtonA11y))>
     <Portal
       containerInfo={
         <div>
           <div
+            aria-hidden="false"
             aria-label="Click me"
             id="mockId"
             role="dialog"
-            style="z-index: 999; left: 0px; position: fixed; top: 0px;"
+            style="z-index: 999; position: absolute; top: 10px; left: 10px; opacity: 1; visibility: visible;"
             tabindex="-1"
           >
             <div>
@@ -375,7 +1232,9 @@ exports[`Popover renders, open 1`] = `
     >
       <ForwardRef(withForwardedRef(PopoverContent))
         id="mockId"
+        isOpen={true}
         label="Click me"
+        offset={10}
         triggerRect={
           Object {
             "height": 0,
@@ -389,10 +1248,11 @@ exports[`Popover renders, open 1`] = `
           forwardedRef={
             Object {
               "current": <div
+                aria-hidden="false"
                 aria-label="Click me"
                 id="mockId"
                 role="dialog"
-                style="z-index: 999; left: 0px; position: fixed; top: 0px;"
+                style="z-index: 999; position: absolute; top: 10px; left: 10px; opacity: 1; visibility: visible;"
                 tabindex="-1"
               >
                 <div>
@@ -402,7 +1262,9 @@ exports[`Popover renders, open 1`] = `
             }
           }
           id="mockId"
+          isOpen={true}
           label="Click me"
+          offset={10}
           triggerRect={
             Object {
               "height": 0,
@@ -413,14 +1275,17 @@ exports[`Popover renders, open 1`] = `
           }
         >
           <div
+            aria-hidden={false}
             aria-label="Click me"
             id="mockId"
             role="dialog"
             style={
               Object {
-                "left": 0,
-                "position": "fixed",
-                "top": 0,
+                "left": 10,
+                "opacity": 1,
+                "position": "absolute",
+                "top": 10,
+                "visibility": "visible",
                 "zIndex": "999",
               }
             }
@@ -435,4 +1300,154 @@ exports[`Popover renders, open 1`] = `
     </Portal>
   </span>
 </Popover>
+`;
+
+exports[`Popover renders, right 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      id="mockId"
+      isOpen={false}
+      offset={10}
+      right={true}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, top 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      id="mockId"
+      isOpen={false}
+      offset={10}
+      top={true}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, top left 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      id="mockId"
+      isOpen={false}
+      left={true}
+      offset={10}
+      top={true}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
+`;
+
+exports[`Popover renders, top right 1`] = `
+<span>
+  <ForwardRef(withForwardedRef(ButtonA11y))
+    aria-controls="mockId"
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-owns="mockId"
+    element="div"
+    onClick={[Function]}
+  >
+    Trigger
+  </ForwardRef(withForwardedRef(ButtonA11y))>
+  <Portal
+    containerInfo={<div />}
+  >
+    <ForwardRef(withForwardedRef(PopoverContent))
+      id="mockId"
+      isOpen={false}
+      offset={10}
+      right={true}
+      top={true}
+      triggerRect={
+        Object {
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
+        }
+      }
+    >
+      <div>
+        This is some content
+      </div>
+    </ForwardRef(withForwardedRef(PopoverContent))>
+  </Portal>
+</span>
 `;

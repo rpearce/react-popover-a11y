@@ -2,14 +2,17 @@
 
 exports[`PopoverContent component renders 1`] = `
 <div
+  aria-hidden={true}
   aria-label="Mock label"
   id="mockId"
   role="dialog"
   style={
     Object {
       "left": 0,
-      "position": "fixed",
+      "opacity": 0,
+      "position": "absolute",
       "top": 0,
+      "visibility": "hidden",
       "zIndex": "999",
     }
   }
@@ -23,6 +26,7 @@ exports[`PopoverContent component renders 1`] = `
 
 exports[`PopoverContent component renders, additional props added 1`] = `
 <div
+  aria-hidden={false}
   aria-label="Mock label"
   data-foo="bar"
   id="mockId"
@@ -30,9 +34,11 @@ exports[`PopoverContent component renders, additional props added 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 313.5,
-      "position": "fixed",
-      "top": 213.5,
+      "left": 150,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 50,
+      "visibility": "visible",
       "zIndex": "999",
     }
   }
@@ -46,14 +52,17 @@ exports[`PopoverContent component renders, additional props added 1`] = `
 
 exports[`PopoverContent component renders, custom style provided 1`] = `
 <div
+  aria-hidden={false}
   aria-label="Mock label"
   id="mockId"
   role="dialog"
   style={
     Object {
-      "left": 313.5,
-      "position": "fixed",
-      "top": 213.5,
+      "left": 150,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 50,
+      "visibility": "visible",
       "zIndex": "9999",
     }
   }
@@ -70,10 +79,11 @@ exports[`PopoverContent component renders, full mount 1`] = `
   forwardedRef={
     Object {
       "current": <div
+        aria-hidden="false"
         aria-label="Mock label"
         id="mockId"
         role="dialog"
-        style="z-index: 999; left: 313.5px; position: fixed; top: 213.5px;"
+        style="z-index: 999; position: absolute; top: 200px; left: 300px; opacity: 1; visibility: visible;"
         tabindex="-1"
       >
         <div>
@@ -83,6 +93,7 @@ exports[`PopoverContent component renders, full mount 1`] = `
     }
   }
   id="mockId"
+  isOpen={true}
   label="Mock label"
   triggerRect={
     Object {
@@ -94,14 +105,17 @@ exports[`PopoverContent component renders, full mount 1`] = `
   }
 >
   <div
+    aria-hidden={false}
     aria-label="Mock label"
     id="mockId"
     role="dialog"
     style={
       Object {
-        "left": 313.5,
-        "position": "fixed",
-        "top": 213.5,
+        "left": 300,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 200,
+        "visibility": "visible",
         "zIndex": "999",
       }
     }
@@ -114,16 +128,307 @@ exports[`PopoverContent component renders, full mount 1`] = `
 </PopoverContent>
 `;
 
-exports[`PopoverContent component renders, triggerRect has values 1`] = `
+exports[`PopoverContent component renders, open & bottom 1`] = `
 <div
+  aria-hidden={false}
   aria-label="Mock label"
   id="mockId"
   role="dialog"
   style={
     Object {
-      "left": 313.5,
-      "position": "fixed",
-      "top": 213.5,
+      "left": 318,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 218,
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open & bottom left 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 150,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 218,
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open & bottom right 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 318,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 218,
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open & left 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 150,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 134,
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open & outside bottom 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 125,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 0,
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open & outside left 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 28,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 134,
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open & outside right 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 125,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 137.5,
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open & outside top 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 234,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 28,
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open & right 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 318,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 134,
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open & top 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 234,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 50,
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open & top left 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 150,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 134,
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open & top right 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 318,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 50,
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": 0,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 0,
+      "visibility": "visible",
       "zIndex": "999",
     }
   }
@@ -137,14 +442,17 @@ exports[`PopoverContent component renders, triggerRect has values 1`] = `
 
 exports[`PopoverContent component renders, triggerRect null 1`] = `
 <div
+  aria-hidden={false}
   aria-label="Mock label"
   id="mockId"
   role="dialog"
   style={
     Object {
       "left": 0,
-      "position": "fixed",
+      "opacity": 1,
+      "position": "absolute",
       "top": 0,
+      "visibility": "visible",
       "zIndex": "9999",
     }
   }
@@ -174,10 +482,11 @@ exports[`PopoverContent container renders 1`] = `
       forwardedRef={
         Object {
           "current": <div
+            aria-hidden="true"
             aria-label="Mock label"
             id="mockId"
             role="dialog"
-            style="z-index: 999; left: 313.5px; position: fixed; top: 213.5px;"
+            style="z-index: 999; position: absolute; top: 0px; left: 0px; opacity: 0; visibility: hidden;"
             tabindex="-1"
           >
             <div>
@@ -198,14 +507,17 @@ exports[`PopoverContent container renders 1`] = `
       }
     >
       <div
+        aria-hidden={true}
         aria-label="Mock label"
         id="mockId"
         role="dialog"
         style={
           Object {
-            "left": 313.5,
-            "position": "fixed",
-            "top": 213.5,
+            "left": 0,
+            "opacity": 0,
+            "position": "absolute",
+            "top": 0,
+            "visibility": "hidden",
             "zIndex": "999",
           }
         }

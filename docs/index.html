@@ -27,11 +27,14 @@
         line-height: 1.7;
         color: rgba(0, 0, 0, 0.8);
       }
-      .container {
-        max-width: 45em;
-        margin: 5em auto;
+      .title {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
       }
-      .btn--words {
+      .btn {
         display: inline-block;
         padding: 0.5em 1em;
         background-color: #0099ff;
@@ -39,25 +42,44 @@
         cursor: default;
         border-radius: 3px;
       }
-      .btn--words:focus {
+      .btn:focus {
         outline: 1px dotted #000;
       }
-      .btn--noWords {
-        display: inline-block;
-        width: 18px;
-        height: 18px;
-        background-color: #0099ff;
-        cursor: default;
-        border-radius: 3px;
+      .content {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 2em 2em;
       }
-      .btn--noWords:focus {
-        outline: 1px dotted #000;
+      .example {
+        position: fixed;
+      }
+      .top {
+        top: 10px;
+      }
+      .bottom {
+        bottom: 10px;
+      }
+      .left {
+        left: 10px;
+      }
+      .right {
+        right: 10px;
+      }
+      .middleX {
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+      }
+      .middleY {
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
       }
     </style>
   </head>
   <body>
-    <main class="container">
-      <h1>react-popover-a11y example</h1>
+    <main>
+      <h1 class="title">react-popover-a11y example</h1>
       <div data-app></div>
     </main>
     <script src="app.js" async></script>
