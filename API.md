@@ -101,3 +101,12 @@ export default class App extends Component {
   }
 }
 ```
+
+### Can compose tangential directions
+You can pass both `bottom` and `left` or `top` and `right`, for example, or
+simply one of those.
+
+### On `window` boundaries
+If you specify `top` and `right`, but the popover would open _outside_ the
+`window` to the top and right, this component will adjust it to be _inside_ the
+`window` – in this case, `bottom` and `left` – so that it will remain visible.
