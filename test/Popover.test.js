@@ -458,26 +458,59 @@ describe('Popover', () => {
 
   describe('componentWillUnmount', () => {
 
-    //it('calls teardown & removes element from the DOM', () => {
-    //  const removeSpy = jest.spyOn(document.body, 'removeChild')
-    //  const content = <div>This is some content</div>
-    //  const trigger = <button>Trigger</button>
-    //  const wrapper = mount(
-    //    <PopoverA11y
-    //      content={content}
-    //      isOpen={false}
-    //      onClose={jest.fn()}
-    //      onOpen={jest.fn()}
-    //      trigger={trigger}
-    //    />
-    //  )
-    //  const instance = wrapper.instance()
+    describe('when open', () => {
 
-    //  jest.spyOn(instance, 'teardown')
+      it('calls teardown & removes element from the DOM', () => {
+        const removeSpy = jest.spyOn(document.body, 'removeChild')
+        const content = <div>This is some content</div>
+        const trigger = <button>Trigger</button>
+        const wrapper = mount(
+          <PopoverA11y
+            content={content}
+            isOpen={true}
+            onClose={jest.fn()}
+            onOpen={jest.fn()}
+            trigger={trigger}
+          />
+        )
+        const instance = wrapper.instance()
 
-    //  expect(instance.teardown).toHaveBeenCalled()
-    //  expect(removeSpy).toHaveBeenCalledWith(instance.el)
-    //})
+        jest.spyOn(instance, 'teardown')
+
+        wrapper.unmount()
+
+        expect(instance.teardown).toHaveBeenCalled()
+        expect(removeSpy).toHaveBeenCalledWith(instance.el)
+      })
+
+    })
+
+    describe('when NOT open', () => {
+
+      it('only removes the element from the DOM', () => {
+        const removeSpy = jest.spyOn(document.body, 'removeChild')
+        const content = <div>This is some content</div>
+        const trigger = <button>Trigger</button>
+        const wrapper = mount(
+          <PopoverA11y
+            content={content}
+            isOpen={false}
+            onClose={jest.fn()}
+            onOpen={jest.fn()}
+            trigger={trigger}
+          />
+        )
+        const instance = wrapper.instance()
+
+        jest.spyOn(instance, 'teardown')
+
+        wrapper.unmount()
+
+        expect(instance.teardown).not.toHaveBeenCalled()
+        expect(removeSpy).toHaveBeenCalledWith(instance.el)
+      })
+
+    })
 
   })
 

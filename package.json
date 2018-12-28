@@ -81,7 +81,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "react-button-a11y": "^1.0.1",
+    "react-button-a11y": "^2.0.0",
     "react-with-forwarded-ref": "^0.1.0"
   }
 }
