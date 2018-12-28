@@ -1115,7 +1115,7 @@ function (_PureComponent) {
 
 exports.ButtonA11y = ButtonA11y;
 ButtonA11y.defaultProps = {
-  element: 'div',
+  element: 'span',
   onClick: Function.prototype,
   onKeyDown: Function.prototype,
   strictMode: true
