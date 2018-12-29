@@ -715,6 +715,11 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@rpearce/simple-uniqueid@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@rpearce/simple-uniqueid/-/simple-uniqueid-0.1.0.tgz#9bbd7bf225199049bc7d409c3b01444612ecd364"
+  integrity sha512-t0NoFYYBJopXkYl8UFZ+klebqH/MwoiTlJClXyjwvlzyJPcnib2a70fQykDix8E8EB1P4vHMc/LL63/hlDSI8Q==
+
 "@types/node@*":
   version "10.12.15"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.15.tgz#20e85651b62fd86656e57c9c9bc771ab1570bc59"

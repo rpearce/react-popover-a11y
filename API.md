@@ -14,6 +14,11 @@
 | `top` | bool | no | none | Have popover appear at the top |
 | `trigger` | node | yes | none | This is the popover trigger element |
 
+## Installation
+```js
+$ npm i react-popover-a11y
+```
+
 ## Usage
 
 ```js
