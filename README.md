@@ -1,6 +1,5 @@
 # react-popover-a11y
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
-
 [![npm version](https://img.shields.io/npm/v/react-popover-a11y.svg)](https://www.npmjs.com/package/react-popover-a11y) [![npm downloads](https://img.shields.io/npm/dt/react-popover-a11y.svg)](https://www.npmjs.com/package/react-popover-a11y) [![Build Status](https://travis-ci.org/rpearce/react-popover-a11y.svg?branch=master)](https://travis-ci.org/rpearce/react-popover-a11y) [![Coverage Status](https://coveralls.io/repos/github/rpearce/react-popover-a11y/badge.svg?branch=master)](https://coveralls.io/github/rpearce/react-popover-a11y?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/8e4debef4b9f0e8acd6e/maintainability)](https://codeclimate.com/github/rpearce/react-popover-a11y/maintainability)
 
 ## Links
