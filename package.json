@@ -1,6 +1,6 @@
 {
   "name": "react-popover-a11y",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Accessible React popover component",
   "main": "index.js",
   "repository": {
