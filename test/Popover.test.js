@@ -1,4 +1,4 @@
-jest.mock('../source/uniqueId', () => () => 'mockId')
+jest.mock('@rpearce/simple-uniqueid', () => () => 'mockId')
 
 import React from 'react'
 import { mount, shallow } from 'enzyme'

@@ -1,8 +1,9 @@
 import React, { PureComponent, cloneElement, createRef } from 'react'
 import { createPortal } from 'react-dom'
 import ButtonA11y from 'react-button-a11y'
+import uniqueId from '@rpearce/simple-uniqueid'
+
 import throttle from './throttle'
-import uniqueId from './uniqueId'
 
 import PopoverContent from './PopoverContent'
 
