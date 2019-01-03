@@ -7,7 +7,7 @@
 | `isOpen` | bool | yes | false | As a controlled component, you must pass `isOpen` to tell the component what to do |
 | `label` | string | no | none | Provide a label to be used as `aria-label` when no appropriate `trigger` text is provided |
 | `left` | bool | no | none | Have popover appear at the left |
-| `offset` | number | no | none | Amount in pixels for popover to be offset from trigger |
+| `offset` | number / CSS unit | no | `0px` | Amount in pixels (or CSS unit value, like `-0.5rem`) for popover to be offset from trigger |
 | `onClose` | function | yes | `Function.prototype` | Callback that is triggered when element should close |
 | `onOpen` | function | yes | `Function.prototype` | Callback that is triggered when element should open |
 | `right` | bool | no | none | Have popover appear at the right |
@@ -97,7 +97,7 @@ export default class App extends Component {
         right
         content={content}
         isOpen={isOpen}
-        offset={10}
+        offset="-0.5rem"
         onClose={this.handleClose}
         onOpen={this.handleOpen}
         trigger={trigger}
