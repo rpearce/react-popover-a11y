@@ -8,10 +8,10 @@ exports[`PopoverContent component renders 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 0,
-      "opacity": 0,
+      "left": "0",
+      "opacity": "0",
       "position": "absolute",
-      "top": 0,
+      "top": "0",
       "visibility": "hidden",
       "zIndex": "999",
     }
@@ -34,10 +34,10 @@ exports[`PopoverContent component renders, additional props added 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 150,
-      "opacity": 1,
+      "left": "calc(150px - 0px)",
+      "opacity": "1",
       "position": "absolute",
-      "top": 50,
+      "top": "calc(50px - 0px)",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -58,10 +58,10 @@ exports[`PopoverContent component renders, custom style provided 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 150,
-      "opacity": 1,
+      "left": "calc(150px - 0px)",
+      "opacity": "1",
       "position": "absolute",
-      "top": 50,
+      "top": "calc(50px - 0px)",
       "visibility": "visible",
       "zIndex": "9999",
     }
@@ -74,60 +74,6 @@ exports[`PopoverContent component renders, custom style provided 1`] = `
 </div>
 `;
 
-exports[`PopoverContent component renders, full mount 1`] = `
-<PopoverContent
-  forwardedRef={
-    Object {
-      "current": <div
-        aria-hidden="false"
-        aria-label="Mock label"
-        id="mockId"
-        role="dialog"
-        style="z-index: 999; position: absolute; top: 200px; left: 300px; opacity: 1; visibility: visible;"
-        tabindex="-1"
-      >
-        <div>
-          This is some content
-        </div>
-      </div>,
-    }
-  }
-  id="mockId"
-  isOpen={true}
-  label="Mock label"
-  triggerRect={
-    Object {
-      "height": 18,
-      "left": 300,
-      "top": 200,
-      "width": 18,
-    }
-  }
->
-  <div
-    aria-hidden={false}
-    aria-label="Mock label"
-    id="mockId"
-    role="dialog"
-    style={
-      Object {
-        "left": 300,
-        "opacity": 1,
-        "position": "absolute",
-        "top": 200,
-        "visibility": "visible",
-        "zIndex": "999",
-      }
-    }
-    tabIndex="-1"
-  >
-    <div>
-      This is some content
-    </div>
-  </div>
-</PopoverContent>
-`;
-
 exports[`PopoverContent component renders, open & bottom 1`] = `
 <div
   aria-hidden={false}
@@ -136,10 +82,10 @@ exports[`PopoverContent component renders, open & bottom 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 318,
-      "opacity": 1,
+      "left": "calc(318px + 0px)",
+      "opacity": "1",
       "position": "absolute",
-      "top": 218,
+      "top": "calc(218px + 0px)",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -160,10 +106,10 @@ exports[`PopoverContent component renders, open & bottom left 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 150,
-      "opacity": 1,
+      "left": "calc(150px - 0px)",
+      "opacity": "1",
       "position": "absolute",
-      "top": 218,
+      "top": "calc(218px + 0px)",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -184,10 +130,10 @@ exports[`PopoverContent component renders, open & bottom right 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 318,
-      "opacity": 1,
+      "left": "calc(318px + 0px)",
+      "opacity": "1",
       "position": "absolute",
-      "top": 218,
+      "top": "calc(218px + 0px)",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -208,10 +154,34 @@ exports[`PopoverContent component renders, open & left 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 150,
-      "opacity": 1,
+      "left": "calc(150px - 0px)",
+      "opacity": "1",
       "position": "absolute",
-      "top": 134,
+      "top": "134px",
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open & numeric offset 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": "234px",
+      "opacity": "1",
+      "position": "absolute",
+      "top": "calc(218px + 10px)",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -232,10 +202,10 @@ exports[`PopoverContent component renders, open & outside bottom 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 125,
-      "opacity": 1,
+      "left": "calc(125px + 0px)",
+      "opacity": "1",
       "position": "absolute",
-      "top": 0,
+      "top": "calc(0px - 0px)",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -256,10 +226,10 @@ exports[`PopoverContent component renders, open & outside left 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 28,
-      "opacity": 1,
+      "left": "calc(28px + 0px)",
+      "opacity": "1",
       "position": "absolute",
-      "top": 134,
+      "top": "134px",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -280,10 +250,10 @@ exports[`PopoverContent component renders, open & outside right 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 125,
-      "opacity": 1,
+      "left": "calc(125px + 0px)",
+      "opacity": "1",
       "position": "absolute",
-      "top": 137.5,
+      "top": "137.5px",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -304,10 +274,34 @@ exports[`PopoverContent component renders, open & outside top 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 234,
-      "opacity": 1,
+      "left": "234px",
+      "opacity": "1",
       "position": "absolute",
-      "top": 28,
+      "top": "calc(28px + 0px)",
+      "visibility": "visible",
+      "zIndex": "999",
+    }
+  }
+  tabIndex="-1"
+>
+  <div>
+    This is some content
+  </div>
+</div>
+`;
+
+exports[`PopoverContent component renders, open & rem offset 1`] = `
+<div
+  aria-hidden={false}
+  aria-label="Mock label"
+  id="mockId"
+  role="dialog"
+  style={
+    Object {
+      "left": "234px",
+      "opacity": "1",
+      "position": "absolute",
+      "top": "calc(218px + -0.5rem)",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -328,10 +322,10 @@ exports[`PopoverContent component renders, open & right 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 318,
-      "opacity": 1,
+      "left": "calc(318px + 0px)",
+      "opacity": "1",
       "position": "absolute",
-      "top": 134,
+      "top": "134px",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -352,10 +346,10 @@ exports[`PopoverContent component renders, open & top 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 234,
-      "opacity": 1,
+      "left": "234px",
+      "opacity": "1",
       "position": "absolute",
-      "top": 50,
+      "top": "calc(50px - 0px)",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -376,10 +370,10 @@ exports[`PopoverContent component renders, open & top left 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 150,
-      "opacity": 1,
+      "left": "calc(150px - 0px)",
+      "opacity": "1",
       "position": "absolute",
-      "top": 134,
+      "top": "134px",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -400,10 +394,10 @@ exports[`PopoverContent component renders, open & top right 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 318,
-      "opacity": 1,
+      "left": "calc(318px + 0px)",
+      "opacity": "1",
       "position": "absolute",
-      "top": 50,
+      "top": "calc(50px - 0px)",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -424,10 +418,10 @@ exports[`PopoverContent component renders, open 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 0,
-      "opacity": 1,
+      "left": "calc(0px + 0px)",
+      "opacity": "1",
       "position": "absolute",
-      "top": 0,
+      "top": "calc(0px + 0px)",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -448,10 +442,10 @@ exports[`PopoverContent component renders, triggerRect null 1`] = `
   role="dialog"
   style={
     Object {
-      "left": 0,
-      "opacity": 1,
+      "left": "0",
+      "opacity": "1",
       "position": "absolute",
-      "top": 0,
+      "top": "0",
       "visibility": "visible",
       "zIndex": "9999",
     }
@@ -513,10 +507,10 @@ exports[`PopoverContent container renders 1`] = `
         role="dialog"
         style={
           Object {
-            "left": 0,
-            "opacity": 0,
+            "left": "0",
+            "opacity": "0",
             "position": "absolute",
-            "top": 0,
+            "top": "0",
             "visibility": "hidden",
             "zIndex": "999",
           }

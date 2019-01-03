@@ -615,7 +615,7 @@ _reactDom.default.render(_react.default.createElement(App, null), container);
 
 module.exports = require('./src');
 
-},{"./src":27}],3:[function(require,module,exports){
+},{"./src":28}],3:[function(require,module,exports){
 'use strict'
 
 module.exports = require('./src')
@@ -24552,7 +24552,7 @@ function (_PureComponent) {
 
 exports.default = Popover;
 
-},{"./PopoverContent":26,"./throttle":28,"@rpearce/simple-uniqueid":3,"react":18,"react-button-a11y":9,"react-dom":13}],26:[function(require,module,exports){
+},{"./PopoverContent":26,"./throttle":29,"@rpearce/simple-uniqueid":3,"react":18,"react-button-a11y":9,"react-dom":13}],26:[function(require,module,exports){
 "use strict";
 
 function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
@@ -24565,6 +24565,8 @@ exports.default = exports.PopoverContent = void 0;
 var _react = _interopRequireWildcard(require("react"));
 
 var _reactWithForwardedRef = _interopRequireDefault(require("react-with-forwarded-ref"));
+
+var _getPCStyle = _interopRequireDefault(require("./getPCStyle"));
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -24734,62 +24736,6 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 
-var getStyle = function getStyle(_ref) {
-  var dirBottom = _ref.dirBottom,
-      dirLeft = _ref.dirLeft,
-      dirRight = _ref.dirRight,
-      dirTop = _ref.dirTop,
-      height = _ref.height,
-      isOpen = _ref.isOpen,
-      _offset = _ref.offset,
-      style = _ref.style,
-      triggerRect = _ref.triggerRect,
-      width = _ref.width;
-  var zIndex = '999';
-  var initial = Object.assign({}, {
-    zIndex: zIndex
-  }, style, {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    opacity: isOpen ? 1 : 0,
-    visibility: isOpen ? 'visible' : 'hidden'
-  });
-
-  if (!isOpen || !triggerRect) {
-    return initial;
-  }
-
-  var offset = _offset || 0;
-  var realTop = window.pageYOffset + triggerRect.top;
-  var realLeft = window.pageXOffset + triggerRect.left;
-  var toTop = {
-    top: realTop - height - offset
-  };
-  var toRight = {
-    left: realLeft + triggerRect.width + offset
-  };
-  var toBottom = {
-    top: realTop + triggerRect.height + offset
-  };
-  var toLeft = {
-    left: realLeft - width - offset
-  };
-  var toMiddleX = {
-    left: realLeft + triggerRect.width / 2 - width / 2
-  };
-  var toMiddleY = {
-    top: realTop + triggerRect.height / 2 - height / 2
-  };
-  var isOutsideTop = triggerRect.top - height <= 0;
-  var isOutsideRight = triggerRect.left + width >= window.innerWidth;
-  var isOutsideBottom = triggerRect.top + triggerRect.height + height >= window.innerHeight;
-  var isOutsideLeft = triggerRect.left - width <= 0;
-  return Object.assign({}, initial, toBottom, // default
-  toMiddleX, // default
-  dirTop && toTop, dirRight && toRight, dirBottom && toBottom, dirLeft && toLeft, (dirTop || dirBottom) && !dirLeft && !dirRight && toMiddleX, (dirRight || dirLeft) && !dirTop && !dirBottom && toMiddleY, isOutsideTop && toBottom, isOutsideRight && toLeft, isOutsideBottom && toTop, isOutsideLeft && toRight);
-};
-
 var PopoverContent =
 /*#__PURE__*/
 function (_Component) {
@@ -24871,7 +24817,7 @@ function (_Component) {
           height = _this$state2.height,
           width = _this$state2.width;
 
-      var newStyle = getStyle({
+      var newStyle = (0, _getPCStyle.default)({
         dirBottom: dirBottom,
         dirLeft: dirLeft,
         dirRight: dirRight,
@@ -24904,7 +24850,82 @@ var _default = (0, _reactWithForwardedRef.default)(PopoverContent);
 
 exports.default = _default;
 
-},{"react":18,"react-with-forwarded-ref":14}],27:[function(require,module,exports){
+},{"./getPCStyle":27,"react":18,"react-with-forwarded-ref":14}],27:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var parseOffset = function parseOffset(offset) {
+  if (!offset || parseFloat(offset) === 0) {
+    return '0px';
+  }
+
+  return typeof offset === 'number' ? "".concat(offset, "px") : offset;
+};
+
+var getPCStyle = function getPCStyle(_ref) {
+  var dirBottom = _ref.dirBottom,
+      dirLeft = _ref.dirLeft,
+      dirRight = _ref.dirRight,
+      dirTop = _ref.dirTop,
+      height = _ref.height,
+      isOpen = _ref.isOpen,
+      _offset = _ref.offset,
+      style = _ref.style,
+      triggerRect = _ref.triggerRect,
+      width = _ref.width;
+  var zIndex = '999';
+  var initial = Object.assign({}, {
+    zIndex: zIndex
+  }, style, {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    opacity: isOpen ? '1' : '0',
+    visibility: isOpen ? 'visible' : 'hidden'
+  });
+
+  if (!isOpen || !triggerRect) {
+    return initial;
+  }
+
+  var offset = parseOffset(_offset);
+  var realTop = window.pageYOffset + triggerRect.top;
+  var realLeft = window.pageXOffset + triggerRect.left;
+  var toTop = {
+    top: "calc(".concat(realTop - height, "px - ").concat(offset, ")")
+  };
+  var toRight = {
+    left: "calc(".concat(realLeft + triggerRect.width, "px + ").concat(offset, ")")
+  };
+  var toBottom = {
+    top: "calc(".concat(realTop + triggerRect.height, "px + ").concat(offset, ")")
+  };
+  var toLeft = {
+    left: "calc(".concat(realLeft - width, "px - ").concat(offset, ")")
+  };
+  var toMiddleX = {
+    left: "".concat(realLeft + triggerRect.width / 2 - width / 2, "px")
+  };
+  var toMiddleY = {
+    top: "".concat(realTop + triggerRect.height / 2 - height / 2, "px")
+  };
+  var isOutsideTop = triggerRect.top - height <= 0;
+  var isOutsideRight = triggerRect.left + width >= window.innerWidth;
+  var isOutsideBottom = triggerRect.top + triggerRect.height + height >= window.innerHeight;
+  var isOutsideLeft = triggerRect.left - width <= 0;
+  return Object.assign({}, initial, toBottom, // default
+  toMiddleX, // default
+  dirTop && toTop, dirRight && toRight, dirBottom && toBottom, dirLeft && toLeft, (dirTop || dirBottom) && !dirLeft && !dirRight && toMiddleX, (dirRight || dirLeft) && !dirTop && !dirBottom && toMiddleY, isOutsideTop && toBottom, isOutsideRight && toLeft, isOutsideBottom && toTop, isOutsideLeft && toRight);
+};
+
+var _default = getPCStyle;
+exports.default = _default;
+
+},{}],28:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24933,7 +24954,7 @@ function _interopRequireDefault(obj) {
   };
 }
 
-},{"./Popover":25,"./PopoverContent":26}],28:[function(require,module,exports){
+},{"./Popover":25,"./PopoverContent":26}],29:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
