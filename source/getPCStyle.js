@@ -8,6 +8,19 @@ const parseOffset = offset => {
     : offset
 }
 
+const getInitial = ({ isOpen, style }) =>
+  Object.assign({},
+    { zIndex: '999' },
+    style,
+    {
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      opacity: isOpen ? '1' : '0',
+      visibility: isOpen ? 'visible' : 'hidden'
+    }
+  )
+
 const getPCStyle = ({
   dirBottom,
   dirLeft,
@@ -20,18 +33,7 @@ const getPCStyle = ({
   triggerRect,
   width
 }) => {
-  const zIndex = '999'
-  const initial = Object.assign({},
-    { zIndex },
-    style,
-    {
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      opacity: isOpen ? '1' : '0',
-      visibility: isOpen ? 'visible' : 'hidden'
-    }
-  )
+  const initial = getInitial({ isOpen, style })
 
   if (!isOpen || !triggerRect) {
     return initial

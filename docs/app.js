@@ -25168,26 +25168,34 @@ var parseOffset = function parseOffset(offset) {
   return typeof offset === 'number' ? "".concat(offset, "px") : offset;
 };
 
-var getPCStyle = function getPCStyle(_ref) {
-  var dirBottom = _ref.dirBottom,
-      dirLeft = _ref.dirLeft,
-      dirRight = _ref.dirRight,
-      dirTop = _ref.dirTop,
-      height = _ref.height,
-      isOpen = _ref.isOpen,
-      _offset = _ref.offset,
-      style = _ref.style,
-      triggerRect = _ref.triggerRect,
-      width = _ref.width;
-  var zIndex = '999';
-  var initial = Object.assign({}, {
-    zIndex: zIndex
+var getInitial = function getInitial(_ref) {
+  var isOpen = _ref.isOpen,
+      style = _ref.style;
+  return Object.assign({}, {
+    zIndex: '999'
   }, style, {
     position: 'absolute',
     top: '0',
     left: '0',
     opacity: isOpen ? '1' : '0',
     visibility: isOpen ? 'visible' : 'hidden'
+  });
+};
+
+var getPCStyle = function getPCStyle(_ref2) {
+  var dirBottom = _ref2.dirBottom,
+      dirLeft = _ref2.dirLeft,
+      dirRight = _ref2.dirRight,
+      dirTop = _ref2.dirTop,
+      height = _ref2.height,
+      isOpen = _ref2.isOpen,
+      _offset = _ref2.offset,
+      style = _ref2.style,
+      triggerRect = _ref2.triggerRect,
+      width = _ref2.width;
+  var initial = getInitial({
+    isOpen: isOpen,
+    style: style
   });
 
   if (!isOpen || !triggerRect) {
