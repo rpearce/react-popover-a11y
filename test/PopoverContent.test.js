@@ -91,6 +91,64 @@ describe('PopoverContent', () => {
       expect(tree).toMatchSnapshot()
     })
 
+    it('renders, open & numeric offset', () => {
+      const forwardedRef = {
+        current: {
+          focus: jest.fn(),
+          offsetWidth: 150,
+          offsetHeight: 150
+        }
+      }
+      const wrapper = shallow(
+        <PopoverContent
+          forwardedRef={forwardedRef}
+          id="mockId"
+          isOpen={true}
+          label="Mock label"
+          offset={10}
+          triggerRect={{
+            left: 300,
+            height: 18,
+            top: 200,
+            width: 18
+          }}
+        >
+          <div>This is some content</div>
+        </PopoverContent>
+      )
+      const tree = toJson(wrapper)
+      expect(tree).toMatchSnapshot()
+    })
+
+    it('renders, open & rem offset', () => {
+      const forwardedRef = {
+        current: {
+          focus: jest.fn(),
+          offsetWidth: 150,
+          offsetHeight: 150
+        }
+      }
+      const wrapper = shallow(
+        <PopoverContent
+          forwardedRef={forwardedRef}
+          id="mockId"
+          isOpen={true}
+          label="Mock label"
+          offset="-0.5rem"
+          triggerRect={{
+            left: 300,
+            height: 18,
+            top: 200,
+            width: 18
+          }}
+        >
+          <div>This is some content</div>
+        </PopoverContent>
+      )
+      const tree = toJson(wrapper)
+      expect(tree).toMatchSnapshot()
+    })
+
     it('renders, open & top', () => {
       const forwardedRef = {
         current: {
@@ -520,34 +578,6 @@ describe('PopoverContent', () => {
           label="Mock label"
           triggerRect={null}
           style={{ zIndex: '9999' }}
-        >
-          <div>This is some content</div>
-        </PopoverContent>
-      )
-      const tree = toJson(wrapper)
-      expect(tree).toMatchSnapshot()
-    })
-
-    it('renders, full mount', () => {
-      const forwardedRef = {
-        current: {
-          focus: jest.fn(),
-          offsetWidth: 150,
-          offsetHeight: 150
-        }
-      }
-      const wrapper = mount(
-        <PopoverContent
-          forwardedRef={forwardedRef}
-          id="mockId"
-          isOpen={true}
-          label="Mock label"
-          triggerRect={{
-            left: 300,
-            height: 18,
-            top: 200,
-            width: 18
-          }}
         >
           <div>This is some content</div>
         </PopoverContent>
