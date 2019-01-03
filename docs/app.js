@@ -14,11 +14,9 @@ var _withOpenToggle = _interopRequireDefault(require("./withOpenToggle"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Bottom = function Bottom(_ref) {
-  var onClose = _ref.onClose,
-      onOpen = _ref.onOpen,
-      isOpen = _ref.isOpen;
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+var Bottom = function Bottom(props) {
   var content = _react.default.createElement("div", {
     className: "content"
   }, "Bottom content");
@@ -27,15 +25,12 @@ var Bottom = function Bottom(_ref) {
     className: "btn"
   }, "Bottom");
 
-  return _react.default.createElement(_.default, {
+  return _react.default.createElement(_.default, _extends({}, props, {
     bottom: true,
     content: content,
-    isOpen: isOpen,
     offset: 10,
-    onClose: onClose,
-    onOpen: onOpen,
     trigger: trigger
-  });
+  }));
 };
 
 var _default = (0, _withOpenToggle.default)(Bottom);
@@ -58,11 +53,9 @@ var _withOpenToggle = _interopRequireDefault(require("./withOpenToggle"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var BottomLeft = function BottomLeft(_ref) {
-  var onClose = _ref.onClose,
-      onOpen = _ref.onOpen,
-      isOpen = _ref.isOpen;
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+var BottomLeft = function BottomLeft(props) {
   var content = _react.default.createElement("div", {
     className: "content"
   }, "Bottom left content");
@@ -71,16 +64,13 @@ var BottomLeft = function BottomLeft(_ref) {
     className: "btn"
   }, "Bottom left");
 
-  return _react.default.createElement(_.default, {
+  return _react.default.createElement(_.default, _extends({}, props, {
     bottom: true,
     left: true,
     content: content,
-    isOpen: isOpen,
     offset: 10,
-    onClose: onClose,
-    onOpen: onOpen,
     trigger: trigger
-  });
+  }));
 };
 
 var _default = (0, _withOpenToggle.default)(BottomLeft);
@@ -103,11 +93,9 @@ var _withOpenToggle = _interopRequireDefault(require("./withOpenToggle"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var BottomRight = function BottomRight(_ref) {
-  var onClose = _ref.onClose,
-      onOpen = _ref.onOpen,
-      isOpen = _ref.isOpen;
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+var BottomRight = function BottomRight(props) {
   var content = _react.default.createElement("div", {
     className: "content"
   }, "Bottom right content");
@@ -116,16 +104,13 @@ var BottomRight = function BottomRight(_ref) {
     className: "btn"
   }, "Bottom right");
 
-  return _react.default.createElement(_.default, {
+  return _react.default.createElement(_.default, _extends({}, props, {
     bottom: true,
     right: true,
     content: content,
-    isOpen: isOpen,
     offset: 10,
-    onClose: onClose,
-    onOpen: onOpen,
     trigger: trigger
-  });
+  }));
 };
 
 var _default = (0, _withOpenToggle.default)(BottomRight);
@@ -148,11 +133,9 @@ var _withOpenToggle = _interopRequireDefault(require("./withOpenToggle"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Left = function Left(_ref) {
-  var onClose = _ref.onClose,
-      onOpen = _ref.onOpen,
-      isOpen = _ref.isOpen;
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+var Left = function Left(props) {
   var content = _react.default.createElement("div", {
     className: "content"
   }, "Left content");
@@ -161,15 +144,12 @@ var Left = function Left(_ref) {
     className: "btn"
   }, "Left");
 
-  return _react.default.createElement(_.default, {
+  return _react.default.createElement(_.default, _extends({}, props, {
     left: true,
     content: content,
-    isOpen: isOpen,
     offset: 10,
-    onClose: onClose,
-    onOpen: onOpen,
     trigger: trigger
-  });
+  }));
 };
 
 var _default = (0, _withOpenToggle.default)(Left);
@@ -192,11 +172,9 @@ var _withOpenToggle = _interopRequireDefault(require("./withOpenToggle"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Right = function Right(_ref) {
-  var onClose = _ref.onClose,
-      onOpen = _ref.onOpen,
-      isOpen = _ref.isOpen;
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+var Right = function Right(props) {
   var content = _react.default.createElement("div", {
     className: "content"
   }, "Right content");
@@ -205,15 +183,12 @@ var Right = function Right(_ref) {
     className: "btn"
   }, "Right");
 
-  return _react.default.createElement(_.default, {
+  return _react.default.createElement(_.default, _extends({}, props, {
     right: true,
     content: content,
-    isOpen: isOpen,
     offset: 10,
-    onClose: onClose,
-    onOpen: onOpen,
     trigger: trigger
-  });
+  }));
 };
 
 var _default = (0, _withOpenToggle.default)(Right);
@@ -236,11 +211,9 @@ var _withOpenToggle = _interopRequireDefault(require("./withOpenToggle"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Top = function Top(_ref) {
-  var onClose = _ref.onClose,
-      onOpen = _ref.onOpen,
-      isOpen = _ref.isOpen;
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+var Top = function Top(props) {
   var content = _react.default.createElement("div", {
     className: "content"
   }, "Top content");
@@ -249,15 +222,12 @@ var Top = function Top(_ref) {
     className: "btn"
   }, "Top");
 
-  return _react.default.createElement(_.default, {
+  return _react.default.createElement(_.default, _extends({}, props, {
     top: true,
     content: content,
-    isOpen: isOpen,
     offset: 10,
-    onClose: onClose,
-    onOpen: onOpen,
     trigger: trigger
-  });
+  }));
 };
 
 var _default = (0, _withOpenToggle.default)(Top);
@@ -280,11 +250,9 @@ var _withOpenToggle = _interopRequireDefault(require("./withOpenToggle"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TopLeft = function TopLeft(_ref) {
-  var onClose = _ref.onClose,
-      onOpen = _ref.onOpen,
-      isOpen = _ref.isOpen;
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+var TopLeft = function TopLeft(props) {
   var content = _react.default.createElement("div", {
     className: "content"
   }, "Top left content");
@@ -293,16 +261,13 @@ var TopLeft = function TopLeft(_ref) {
     className: "btn"
   }, "Top left");
 
-  return _react.default.createElement(_.default, {
+  return _react.default.createElement(_.default, _extends({}, props, {
     top: true,
     left: true,
     content: content,
-    isOpen: isOpen,
     offset: 10,
-    onClose: onClose,
-    onOpen: onOpen,
     trigger: trigger
-  });
+  }));
 };
 
 var _default = (0, _withOpenToggle.default)(TopLeft);
@@ -325,11 +290,9 @@ var _withOpenToggle = _interopRequireDefault(require("./withOpenToggle"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TopRight = function TopRight(_ref) {
-  var onClose = _ref.onClose,
-      onOpen = _ref.onOpen,
-      isOpen = _ref.isOpen;
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+var TopRight = function TopRight(props) {
   var content = _react.default.createElement("div", {
     className: "content"
   }, "Top right content");
@@ -338,16 +301,13 @@ var TopRight = function TopRight(_ref) {
     className: "btn"
   }, "Top right");
 
-  return _react.default.createElement(_.default, {
+  return _react.default.createElement(_.default, _extends({}, props, {
     top: true,
     right: true,
     content: content,
-    isOpen: isOpen,
     offset: 10,
-    onClose: onClose,
-    onOpen: onOpen,
     trigger: trigger
-  });
+  }));
 };
 
 var _default = (0, _withOpenToggle.default)(TopRight);
