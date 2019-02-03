@@ -34,7 +34,7 @@
   ],
   "scripts": {
     "build": "npm run build:js && npm run build:docs",
-    "build:docs": "rm docs/app.js && browserify example/app.js -o docs/app.js -t [ babelify ]",
+    "build:docs": "rm -f docs/app.js && browserify example/app.js -o docs/app.js -t [ babelify ]",
     "build:js": "rm -rf src && babel source --out-dir src",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
