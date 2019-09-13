@@ -3,23 +3,17 @@ const parseOffset = offset => {
     return '0px'
   }
 
-  return typeof offset === 'number'
-    ? `${offset}px`
-    : offset
+  return typeof offset === 'number' ? `${offset}px` : offset
 }
 
 const getInitial = ({ isOpen, style }) =>
-  Object.assign({},
-    { zIndex: '999' },
-    style,
-    {
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      opacity: isOpen ? '1' : '0',
-      visibility: isOpen ? 'visible' : 'hidden'
-    }
-  )
+  Object.assign({}, { zIndex: '999' }, style, {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    opacity: isOpen ? '1' : '0',
+    visibility: isOpen ? 'visible' : 'hidden'
+  })
 
 const getPCStyle = ({
   dirBottom,
@@ -41,31 +35,42 @@ const getPCStyle = ({
 
   const offset = parseOffset(_offset)
 
-  const realTop  = window.pageYOffset + triggerRect.top
+  const realTop = window.pageYOffset + triggerRect.top
   const realLeft = window.pageXOffset + triggerRect.left
 
-  const toTop    = { top: `calc(${realTop - height}px - ${offset})` }
-  const toRight  = { left: `calc(${realLeft + triggerRect.width}px + ${offset})` }
-  const toBottom = { top: `calc(${realTop + triggerRect.height}px + ${offset})` }
-  const toLeft   = { left: `calc(${realLeft - width}px - ${offset})` }
+  const toTop = { top: `calc(${realTop - height}px - ${offset})` }
+  const toRight = {
+    left: `calc(${realLeft + triggerRect.width}px + ${offset})`
+  }
+  const toBottom = {
+    top: `calc(${realTop + triggerRect.height}px + ${offset})`
+  }
+  const toLeft = { left: `calc(${realLeft - width}px - ${offset})` }
 
-  const toMiddleX = { left: `${realLeft + (triggerRect.width / 2) - (width / 2)}px` }
-  const toMiddleY = { top: `${realTop + (triggerRect.height / 2) - (height / 2)}px` }
+  const toMiddleX = {
+    left: `${realLeft + triggerRect.width / 2 - width / 2}px`
+  }
+  const toMiddleY = {
+    top: `${realTop + triggerRect.height / 2 - height / 2}px`
+  }
 
-  const isOutsideTop    = triggerRect.top - height <= 0
-  const isOutsideRight  = triggerRect.left + width >= window.innerWidth
-  const isOutsideBottom = triggerRect.top + triggerRect.height + height >= window.innerHeight
-  const isOutsideLeft   = triggerRect.left - width <= 0
+  const isOutsideTop = triggerRect.top - height <= 0
+  const isOutsideRight = triggerRect.left + width >= window.innerWidth
+  const isOutsideBottom =
+    triggerRect.top + triggerRect.height + height >= window.innerHeight
+  const isOutsideLeft = triggerRect.left - width <= 0
 
-  return Object.assign({}, initial,
-    toBottom,  // default
+  return Object.assign(
+    {},
+    initial,
+    toBottom, // default
     toMiddleX, // default
     dirTop && toTop,
     dirRight && toRight,
     dirBottom && toBottom,
     dirLeft && toLeft,
-    ((dirTop || dirBottom) && !dirLeft && !dirRight) && toMiddleX,
-    ((dirRight || dirLeft) && !dirTop && !dirBottom) && toMiddleY,
+    (dirTop || dirBottom) && !dirLeft && !dirRight && toMiddleX,
+    (dirRight || dirLeft) && !dirTop && !dirBottom && toMiddleY,
     isOutsideTop && toBottom,
     isOutsideRight && toLeft,
     isOutsideBottom && toTop,

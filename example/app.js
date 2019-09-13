@@ -14,14 +14,30 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <div className="example top left"><BottomRight /></div>
-        <div className="example top middleX"><Bottom /></div>
-        <div className="example top right"><BottomLeft /></div>
-        <div className="example right middleY"><Left /></div>
-        <div className="example bottom right"><TopLeft /></div>
-        <div className="example bottom middleX"><Top /></div>
-        <div className="example bottom left"><TopRight /></div>
-        <div className="example left middleY"><Right /></div>
+        <div className="example top left">
+          <BottomRight />
+        </div>
+        <div className="example top middleX">
+          <Bottom />
+        </div>
+        <div className="example top right">
+          <BottomLeft />
+        </div>
+        <div className="example right middleY">
+          <Left />
+        </div>
+        <div className="example bottom right">
+          <TopLeft />
+        </div>
+        <div className="example bottom middleX">
+          <Top />
+        </div>
+        <div className="example bottom left">
+          <TopRight />
+        </div>
+        <div className="example left middleY">
+          <Right />
+        </div>
       </Fragment>
     )
   }

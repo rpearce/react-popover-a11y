@@ -2,6 +2,7 @@ import React, { PureComponent, cloneElement, createRef } from 'react'
 import { createPortal } from 'react-dom'
 import ButtonA11y from 'react-button-a11y'
 import uniqueId from '@rpearce/simple-uniqueid'
+import { bool, func, node, number, oneOfType, string } from 'prop-types'
 
 import throttle from './throttle'
 
@@ -162,11 +163,7 @@ export default class Popover extends PureComponent {
       return cloneElement(content, cProps)
     }
 
-    return (
-      <PopoverContent {...cProps}>
-        {content}
-      </PopoverContent>
-    )
+    return <PopoverContent {...cProps}>{content}</PopoverContent>
   }
 
   render() {
@@ -177,4 +174,18 @@ export default class Popover extends PureComponent {
       </span>
     )
   }
+}
+
+Popover.propTypes = {
+  bottom: bool,
+  content: node,
+  isOpen: bool,
+  label: string,
+  left: bool,
+  offset: oneOfType([number, string]),
+  onClose: func,
+  onOpen: func,
+  right: bool,
+  top: bool,
+  trigger: node
 }

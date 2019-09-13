@@ -1,5 +1,15 @@
 import React, { Component } from 'react'
 import withForwardedRef from 'react-with-forwarded-ref'
+import {
+  bool,
+  func,
+  node,
+  number,
+  object,
+  oneOfType,
+  shape,
+  string
+} from 'prop-types'
 
 import getPCStyle from './getPCStyle'
 
@@ -20,7 +30,7 @@ export class PopoverContent extends Component {
     this.setDimensions()
 
     setTimeout(() => {
-      const { forwardedRef, isOpen  } = this.props
+      const { forwardedRef, isOpen } = this.props
       if (!prevProps.isOpen && isOpen && forwardedRef && forwardedRef.current) {
         forwardedRef.current.focus()
       }
@@ -29,7 +39,9 @@ export class PopoverContent extends Component {
 
   setDimensions() {
     const {
-      props: { forwardedRef: { current } },
+      props: {
+        forwardedRef: { current }
+      },
       state: { height, width }
     } = this
 
@@ -89,6 +101,21 @@ export class PopoverContent extends Component {
       </div>
     )
   }
+}
+
+PopoverContent.propTypes = {
+  bottom: bool,
+  children: node,
+  forwardedRef: shape({ current: shape({ focus: func }) }),
+  id: string.isRequired,
+  isOpen: bool,
+  label: string,
+  left: bool,
+  offset: oneOfType([number, string]),
+  right: bool,
+  style: object,
+  top: bool,
+  triggerRect: object
 }
 
 export default withForwardedRef(PopoverContent)
