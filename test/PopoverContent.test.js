@@ -5,9 +5,7 @@ import toJson from 'enzyme-to-json'
 import Container, { PopoverContent } from '../source/PopoverContent'
 
 describe('PopoverContent', () => {
-
   describe('container', () => {
-
     it('renders', () => {
       const ref = createRef()
       const wrapper = mount(
@@ -30,11 +28,9 @@ describe('PopoverContent', () => {
       const tree = toJson(wrapper)
       expect(tree).toMatchSnapshot()
     })
-
   })
 
   describe('component', () => {
-
     it('renders', () => {
       const forwardedRef = {
         current: {
@@ -587,7 +583,6 @@ describe('PopoverContent', () => {
     })
 
     describe('componentDidUpdate', () => {
-
       it('calls focus on forwardedRef', done => {
         const forwardedRef = createRef()
         const wrapper = mount(
@@ -620,9 +615,6 @@ describe('PopoverContent', () => {
           done()
         }, 0)
       })
-
     })
-
   })
-
 })

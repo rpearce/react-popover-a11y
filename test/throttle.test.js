@@ -1,7 +1,6 @@
 import throttle from '../source/throttle'
 
 describe('throttle', () => {
-
   it('throttles', done => {
     const testIt = jest.fn()
     const throttled = throttle(testIt, 50)
@@ -17,5 +16,4 @@ describe('throttle', () => {
       done()
     }, 50)
   })
-
 })

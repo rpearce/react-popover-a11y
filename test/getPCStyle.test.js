@@ -1,9 +1,7 @@
 import getPCStyle from '../source/getPCStyle'
 
 describe('getPCStyle', () => {
-
   describe('when NOT open', () => {
-
     it('returns default', () => {
       const res = getPCStyle({
         height: 100,
@@ -28,11 +26,9 @@ describe('getPCStyle', () => {
       }
       expect(res).toEqual(expected)
     })
-
   })
 
   describe('when triggerRect absent', () => {
-
     it('returns default', () => {
       const res = getPCStyle({
         height: 100,
@@ -52,13 +48,10 @@ describe('getPCStyle', () => {
       }
       expect(res).toEqual(expected)
     })
-
   })
 
   describe('when open', () => {
-
     describe('default', () => {
-
       it('returns bottom styles, no offset', () => {
         const res = getPCStyle({
           height: 100,
@@ -135,11 +128,9 @@ describe('getPCStyle', () => {
         }
         expect(res).toEqual(expected)
       })
-
     })
 
     describe('bottom right', () => {
-
       it('returns styles, no offset', () => {
         const res = getPCStyle({
           dirBottom: true,
@@ -222,11 +213,9 @@ describe('getPCStyle', () => {
         }
         expect(res).toEqual(expected)
       })
-
     })
 
     describe('bottom', () => {
-
       it('returns styles, no offset', () => {
         const res = getPCStyle({
           height: 100,
@@ -303,11 +292,9 @@ describe('getPCStyle', () => {
         }
         expect(res).toEqual(expected)
       })
-
     })
 
     describe('bottom left', () => {
-
       it('returns styles, no offset', () => {
         const res = getPCStyle({
           dirBottom: true,
@@ -390,11 +377,9 @@ describe('getPCStyle', () => {
         }
         expect(res).toEqual(expected)
       })
-
     })
 
     describe('left', () => {
-
       it('returns styles, no offset', () => {
         const res = getPCStyle({
           dirLeft: true,
@@ -474,11 +459,9 @@ describe('getPCStyle', () => {
         }
         expect(res).toEqual(expected)
       })
-
     })
 
     describe('top left', () => {
-
       it('returns styles, no offset', () => {
         const res = getPCStyle({
           dirLeft: true,
@@ -561,11 +544,9 @@ describe('getPCStyle', () => {
         }
         expect(res).toEqual(expected)
       })
-
     })
 
     describe('top', () => {
-
       it('returns styles, no offset', () => {
         const res = getPCStyle({
           dirTop: true,
@@ -645,11 +626,9 @@ describe('getPCStyle', () => {
         }
         expect(res).toEqual(expected)
       })
-
     })
 
     describe('top right', () => {
-
       it('returns styles, no offset', () => {
         const res = getPCStyle({
           dirRight: true,
@@ -732,11 +711,9 @@ describe('getPCStyle', () => {
         }
         expect(res).toEqual(expected)
       })
-
     })
 
     describe('right', () => {
-
       it('returns styles, no offset', () => {
         const res = getPCStyle({
           dirRight: true,
@@ -816,13 +793,10 @@ describe('getPCStyle', () => {
         }
         expect(res).toEqual(expected)
       })
-
     })
-
   })
 
   describe('when page offsets present', () => {
-
     beforeEach(() => {
       global.pageYOffset = 150
       global.pageXOffset = 75
@@ -857,11 +831,9 @@ describe('getPCStyle', () => {
       }
       expect(res).toEqual(expected)
     })
-
   })
 
   describe('when outside top', () => {
-
     it('returns bottom styles', () => {
       const res = getPCStyle({
         dirTop: true,
@@ -887,11 +859,9 @@ describe('getPCStyle', () => {
       }
       expect(res).toEqual(expected)
     })
-
   })
 
   describe('when outside right', () => {
-
     it('returns left styles', () => {
       const res = getPCStyle({
         dirRight: true,
@@ -917,11 +887,9 @@ describe('getPCStyle', () => {
       }
       expect(res).toEqual(expected)
     })
-
   })
 
   describe('when outside bottom', () => {
-
     it('returns top styles', () => {
       const res = getPCStyle({
         dirBottom: true,
@@ -947,11 +915,9 @@ describe('getPCStyle', () => {
       }
       expect(res).toEqual(expected)
     })
-
   })
 
   describe('when outside left', () => {
-
     it('returns right styles', () => {
       const res = getPCStyle({
         dirLeft: true,
@@ -977,7 +943,5 @@ describe('getPCStyle', () => {
       }
       expect(res).toEqual(expected)
     })
-
   })
-
 })

@@ -8,7 +8,6 @@ import ButtonA11y from 'react-button-a11y'
 import PopoverA11y, { PopoverContent } from '../source'
 
 describe('Popover', () => {
-
   it('renders', () => {
     const content = <div>This is some content</div>
     const trigger = <div>Trigger</div>
@@ -436,7 +435,6 @@ describe('Popover', () => {
   })
 
   describe('componentDidMount', () => {
-
     it('appends element to the DOM', () => {
       const appendSpy = jest.spyOn(document.body, 'appendChild')
       const content = <div>This is some content</div>
@@ -453,13 +451,10 @@ describe('Popover', () => {
       const instance = wrapper.instance()
       expect(appendSpy).toHaveBeenCalledWith(instance.el)
     })
-
   })
 
   describe('componentWillUnmount', () => {
-
     describe('when open', () => {
-
       it('calls teardown & removes element from the DOM', () => {
         const removeSpy = jest.spyOn(document.body, 'removeChild')
         const content = <div>This is some content</div>
@@ -482,11 +477,9 @@ describe('Popover', () => {
         expect(instance.teardown).toHaveBeenCalled()
         expect(removeSpy).toHaveBeenCalledWith(instance.el)
       })
-
     })
 
     describe('when NOT open', () => {
-
       it('only removes the element from the DOM', () => {
         const removeSpy = jest.spyOn(document.body, 'removeChild')
         const content = <div>This is some content</div>
@@ -509,15 +502,11 @@ describe('Popover', () => {
         expect(instance.teardown).not.toHaveBeenCalled()
         expect(removeSpy).toHaveBeenCalledWith(instance.el)
       })
-
     })
-
   })
 
   describe('componentDidUpdate', () => {
-
     describe('when closed to open', () => {
-
       it('calls the setup function', () => {
         const content = (
           <PopoverContent style={{ zIndex: '9999' }}>
@@ -544,11 +533,9 @@ describe('Popover', () => {
         expect(instance.setup).toHaveBeenCalled()
         expect(instance.teardown).not.toHaveBeenCalled()
       })
-
     })
 
     describe('when open to closed', () => {
-
       it('calls the teardown function', () => {
         const content = (
           <PopoverContent style={{ zIndex: '9999' }}>
@@ -577,11 +564,9 @@ describe('Popover', () => {
         expect(instance.setup).not.toHaveBeenCalled()
         expect(instance.teardown).toHaveBeenCalled()
       })
-
     })
 
     describe('when the same', () => {
-
       it('calls neither setup nor teardown', () => {
         const content = (
           <PopoverContent style={{ zIndex: '9999' }}>
@@ -608,15 +593,11 @@ describe('Popover', () => {
         expect(instance.setup).not.toHaveBeenCalled()
         expect(instance.teardown).not.toHaveBeenCalled()
       })
-
     })
-
   })
 
   describe('componentWillUnmount', () => {
-
     describe('when closed', () => {
-
       it('does nothing', () => {
         const content = (
           <PopoverContent style={{ zIndex: '9999' }}>
@@ -641,11 +622,9 @@ describe('Popover', () => {
 
         expect(instance.teardown).not.toHaveBeenCalled()
       })
-
     })
 
     describe('when open', () => {
-
       it('calls teardown', () => {
         const content = (
           <PopoverContent style={{ zIndex: '9999' }}>
@@ -672,13 +651,10 @@ describe('Popover', () => {
 
         expect(instance.teardown).toHaveBeenCalled()
       })
-
     })
-
   })
 
   describe('setup fn', () => {
-
     it('adds listeners & appends el to body', () => {
       const content = (
         <PopoverContent style={{ zIndex: '9999' }}>
@@ -703,18 +679,17 @@ describe('Popover', () => {
       wrapper.setProps({ isOpen: true })
 
       expect(docListenSpy.mock.calls).toEqual([
-        [ 'click', instance.handleDocumentClick ],
-        [ 'keydown', instance.handleKeyDown ]
+        ['click', instance.handleDocumentClick],
+        ['keydown', instance.handleKeyDown]
       ])
-      expect(winListenSpy.mock.calls[3]).toEqual(
-        [ 'resize', instance.handleResize ]
-      )
+      expect(winListenSpy.mock.calls[3]).toEqual([
+        'resize',
+        instance.handleResize
+      ])
     })
-
   })
 
   describe('teardown fn', () => {
-
     it('removes listeners & removes el from body', () => {
       const content = (
         <PopoverContent style={{ zIndex: '9999' }}>
@@ -741,20 +716,18 @@ describe('Popover', () => {
       wrapper.setProps({ isOpen: false })
 
       expect(winListenSpy.mock.calls[2]).toEqual([
-        'resize', instance.handleResize
+        'resize',
+        instance.handleResize
       ])
       expect(docListenSpy.mock.calls).toEqual([
-        [ 'keydown', instance.handleKeyDown ],
-        [ 'click', instance.handleDocumentClick ]
+        ['keydown', instance.handleKeyDown],
+        ['click', instance.handleDocumentClick]
       ])
     })
-
   })
 
   describe('trigger click', () => {
-
     describe('when open', () => {
-
       it('calls onClose', () => {
         const onClose = jest.fn()
         const onOpen = jest.fn()
@@ -780,11 +753,9 @@ describe('Popover', () => {
         expect(onClose).toHaveBeenCalled()
         expect(onOpen).not.toHaveBeenCalled()
       })
-
     })
 
     describe('when closed', () => {
-
       it('calls onOpen', () => {
         const onClose = jest.fn()
         const onOpen = jest.fn()
@@ -809,15 +780,11 @@ describe('Popover', () => {
         expect(onClose).not.toHaveBeenCalled()
         expect(onOpen).toHaveBeenCalled()
       })
-
     })
-
   })
 
   describe('document click', () => {
-
     describe('when target in trigger', () => {
-
       it('does nothing', () => {
         const onClose = jest.fn()
         const content = (
@@ -845,11 +812,9 @@ describe('Popover', () => {
 
         expect(onClose).not.toHaveBeenCalled()
       })
-
     })
 
     describe('when target in popover', () => {
-
       it('does nothing', () => {
         const onClose = jest.fn()
         const content = (
@@ -877,11 +842,9 @@ describe('Popover', () => {
 
         expect(onClose).not.toHaveBeenCalled()
       })
-
     })
 
     describe('when target something else', () => {
-
       it('calls onClose', () => {
         const onClose = jest.fn()
         const content = (
@@ -906,15 +869,11 @@ describe('Popover', () => {
 
         expect(onClose).toHaveBeenCalled()
       })
-
     })
-
   })
 
   describe('document key down', () => {
-
     describe('when closed', () => {
-
       it('does nothing', () => {
         const onClose = jest.fn()
         const content = (
@@ -935,21 +894,20 @@ describe('Popover', () => {
         const instance = wrapper.instance()
         const focusSpy = jest.spyOn(instance.triggerRef.current, 'focus')
 
-        document.dispatchEvent(new KeyboardEvent('keydown', {
-          bubbles: true,
-          key: 'Escape'
-        }))
+        document.dispatchEvent(
+          new KeyboardEvent('keydown', {
+            bubbles: true,
+            key: 'Escape'
+          })
+        )
 
         expect(focusSpy).not.toHaveBeenCalled()
         expect(onClose).not.toHaveBeenCalled()
       })
-
     })
 
     describe('when open', () => {
-
       describe('when e.key is Escape', () => {
-
         it('focuses on trigger and calls onClose', () => {
           const onClose = jest.fn()
           const content = (
@@ -973,19 +931,19 @@ describe('Popover', () => {
 
           const focusSpy = jest.spyOn(instance.triggerRef.current, 'focus')
 
-          document.dispatchEvent(new KeyboardEvent('keydown', {
-            bubbles: true,
-            key: 'Escape'
-          }))
+          document.dispatchEvent(
+            new KeyboardEvent('keydown', {
+              bubbles: true,
+              key: 'Escape'
+            })
+          )
 
           expect(focusSpy).toHaveBeenCalled()
           expect(onClose).toHaveBeenCalled()
         })
-
       })
 
       describe('when e.keyCode is 27', () => {
-
         it('focuses on trigger and calls onClose', () => {
           const onClose = jest.fn()
           const content = (
@@ -1009,19 +967,19 @@ describe('Popover', () => {
 
           const focusSpy = jest.spyOn(instance.triggerRef.current, 'focus')
 
-          document.dispatchEvent(new KeyboardEvent('keydown', {
-            bubbles: true,
-            keyCode: 27
-          }))
+          document.dispatchEvent(
+            new KeyboardEvent('keydown', {
+              bubbles: true,
+              keyCode: 27
+            })
+          )
 
           expect(focusSpy).toHaveBeenCalled()
           expect(onClose).toHaveBeenCalled()
         })
-
       })
 
       describe('when e.key is Spacebar', () => {
-
         it('does nothing', () => {
           const onClose = jest.fn()
           const content = (
@@ -1045,19 +1003,19 @@ describe('Popover', () => {
 
           const focusSpy = jest.spyOn(instance.triggerRef.current, 'focus')
 
-          document.dispatchEvent(new KeyboardEvent('keydown', {
-            bubbles: true,
-            key: 'Spacebar'
-          }))
+          document.dispatchEvent(
+            new KeyboardEvent('keydown', {
+              bubbles: true,
+              key: 'Spacebar'
+            })
+          )
 
           expect(focusSpy).not.toHaveBeenCalled()
           expect(onClose).not.toHaveBeenCalled()
         })
-
       })
 
       describe('when e.keyCode is 13', () => {
-
         it('does nothing', () => {
           const onClose = jest.fn()
           const content = (
@@ -1081,23 +1039,21 @@ describe('Popover', () => {
 
           const focusSpy = jest.spyOn(instance.triggerRef.current, 'focus')
 
-          document.dispatchEvent(new KeyboardEvent('keydown', {
-            bubbles: true,
-            keyCode: 13
-          }))
+          document.dispatchEvent(
+            new KeyboardEvent('keydown', {
+              bubbles: true,
+              keyCode: 13
+            })
+          )
 
           expect(focusSpy).not.toHaveBeenCalled()
           expect(onClose).not.toHaveBeenCalled()
         })
-
       })
-
     })
-
   })
 
   describe('handleResize', () => {
-
     it('calls forceUpdate on resize', () => {
       const onClose = jest.fn()
       const content = <div>This is some content</div>
@@ -1118,7 +1074,5 @@ describe('Popover', () => {
 
       expect(updateSpy).toHaveBeenCalled()
     })
-
   })
-
 })

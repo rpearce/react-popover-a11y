@@ -2,7 +2,7 @@
 
 exports[`Popover renders 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={false}
     aria-haspopup={true}
@@ -11,7 +11,7 @@ exports[`Popover renders 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -366,7 +366,7 @@ exports[`Popover renders with PopoverContent, open 1`] = `
 
 exports[`Popover renders with actual button for trigger 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={false}
     aria-haspopup={true}
@@ -375,7 +375,7 @@ exports[`Popover renders with actual button for trigger 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -406,7 +406,7 @@ exports[`Popover renders with actual button for trigger 1`] = `
 
 exports[`Popover renders, bottom 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={false}
     aria-haspopup={true}
@@ -415,7 +415,7 @@ exports[`Popover renders, bottom 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -444,7 +444,7 @@ exports[`Popover renders, bottom 1`] = `
 
 exports[`Popover renders, bottom left 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={false}
     aria-haspopup={true}
@@ -453,7 +453,7 @@ exports[`Popover renders, bottom left 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -482,7 +482,7 @@ exports[`Popover renders, bottom left 1`] = `
 
 exports[`Popover renders, bottom right 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={false}
     aria-haspopup={true}
@@ -491,7 +491,7 @@ exports[`Popover renders, bottom right 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -520,7 +520,7 @@ exports[`Popover renders, bottom right 1`] = `
 
 exports[`Popover renders, left 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={false}
     aria-haspopup={true}
@@ -529,7 +529,7 @@ exports[`Popover renders, left 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -557,7 +557,7 @@ exports[`Popover renders, left 1`] = `
 
 exports[`Popover renders, open & bottom 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={true}
     aria-haspopup={true}
@@ -566,7 +566,7 @@ exports[`Popover renders, open & bottom 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -595,7 +595,7 @@ exports[`Popover renders, open & bottom 1`] = `
 
 exports[`Popover renders, open & bottom left 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={true}
     aria-haspopup={true}
@@ -604,7 +604,7 @@ exports[`Popover renders, open & bottom left 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -633,7 +633,7 @@ exports[`Popover renders, open & bottom left 1`] = `
 
 exports[`Popover renders, open & bottom right 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={true}
     aria-haspopup={true}
@@ -642,7 +642,7 @@ exports[`Popover renders, open & bottom right 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -671,7 +671,7 @@ exports[`Popover renders, open & bottom right 1`] = `
 
 exports[`Popover renders, open & left 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={true}
     aria-haspopup={true}
@@ -680,7 +680,7 @@ exports[`Popover renders, open & left 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -708,7 +708,7 @@ exports[`Popover renders, open & left 1`] = `
 
 exports[`Popover renders, open & right 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={true}
     aria-haspopup={true}
@@ -717,7 +717,7 @@ exports[`Popover renders, open & right 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -745,7 +745,7 @@ exports[`Popover renders, open & right 1`] = `
 
 exports[`Popover renders, open & top 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={true}
     aria-haspopup={true}
@@ -754,7 +754,7 @@ exports[`Popover renders, open & top 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -782,7 +782,7 @@ exports[`Popover renders, open & top 1`] = `
 
 exports[`Popover renders, open & top left 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={true}
     aria-haspopup={true}
@@ -791,7 +791,7 @@ exports[`Popover renders, open & top left 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -820,7 +820,7 @@ exports[`Popover renders, open & top left 1`] = `
 
 exports[`Popover renders, open & top right 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={true}
     aria-haspopup={true}
@@ -829,7 +829,7 @@ exports[`Popover renders, open & top right 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -1304,7 +1304,7 @@ exports[`Popover renders, open with label 1`] = `
 
 exports[`Popover renders, right 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={false}
     aria-haspopup={true}
@@ -1313,7 +1313,7 @@ exports[`Popover renders, right 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -1341,7 +1341,7 @@ exports[`Popover renders, right 1`] = `
 
 exports[`Popover renders, top 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={false}
     aria-haspopup={true}
@@ -1350,7 +1350,7 @@ exports[`Popover renders, top 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -1378,7 +1378,7 @@ exports[`Popover renders, top 1`] = `
 
 exports[`Popover renders, top left 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={false}
     aria-haspopup={true}
@@ -1387,7 +1387,7 @@ exports[`Popover renders, top left 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >
@@ -1416,7 +1416,7 @@ exports[`Popover renders, top left 1`] = `
 
 exports[`Popover renders, top right 1`] = `
 <span>
-  <ForwardRef(withForwardedRef(ButtonA11y))
+  <Memo([object Object])
     aria-controls="mockId"
     aria-expanded={false}
     aria-haspopup={true}
@@ -1425,7 +1425,7 @@ exports[`Popover renders, top right 1`] = `
     onClick={[Function]}
   >
     Trigger
-  </ForwardRef(withForwardedRef(ButtonA11y))>
+  </Memo([object Object])>
   <Portal
     containerInfo={<div />}
   >

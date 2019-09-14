@@ -2,7 +2,8 @@
   "name": "react-popover-a11y",
   "version": "0.2.1",
   "description": "Accessible React popover component",
-  "main": "index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:rpearce/react-popover-a11y.git"
@@ -30,59 +31,62 @@
     "AUTHORS",
     "LICENSE",
     "README.md",
-    "src/"
+    "dist/"
   ],
   "scripts": {
-    "build": "npm run build:js && npm run build:docs",
-    "build:docs": "rm -f docs/app.js && browserify example/app.js -o docs/app.js -t [ babelify ]",
-    "build:js": "rm -rf src && babel source --out-dir src",
+    "build": "run-s clean build:js build:docs",
+    "build:docs": "browserify example/app.js -o docs/app.js -t [ babelify ]",
+    "build:js": "rollup -c rollup.config.js",
+    "clean": "rm -rf dist/",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
-    "lint": "eslint --ext .js .",
-    "prepublishOnly": "npm run lint && npm run build",
-    "test": "npm run lint && npm run build && jest --coverage --no-cache"
-  },
-  "jest": {
-    "clearMocks": true,
-    "collectCoverageFrom": [
-      "<rootDir>/source/**/*.js"
-    ],
-    "setupTestFrameworkScriptFile": "<rootDir>/test/setup.js",
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
+    "lint": "eslint .",
+    "prepublishOnly": "run-p lint test && npm run build",
+    "test": "jest"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.0",
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.0",
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
-    "all-contributors-cli": "^5.4.1",
+    "all-contributors-cli": "^6.9.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.9.0",
     "babelify": "^10.0.0",
-    "browserify": "^16.2.3",
-    "coveralls": "^3.0.2",
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.7.1",
-    "enzyme-to-json": "^3.3.5",
-    "eslint": "^5.10.0",
-    "eslint-plugin-jest": "^22.1.2",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "jest": "^23.6.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "browserify": "^16.5.0",
+    "coveralls": "^3.0.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "2.0.1",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.2.5",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "rollup": "^1.21.2",
+    "rollup-plugin-auto-external": "^3.0.0-alpha.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "peerDependencies": {
-    "react": ">= 16.3",
-    "react-dom": ">= 16.3"
+    "react": ">= 16.3.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
     "@rpearce/simple-uniqueid": "^0.1.0",
-    "react-button-a11y": "^2.0.0",
+    "prop-types": "^15.7.2",
+    "react-button-a11y": "^4.0.0",
     "react-with-forwarded-ref": "^0.1.0"
   }
 }
