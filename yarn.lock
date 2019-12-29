@@ -623,7 +623,7 @@
     "@babel/helper-create-regexp-features-plugin" "^7.7.4"
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/polyfill@^7.0.0", "@babel/polyfill@^7.7.0":
+"@babel/polyfill@^7.7.0":
   version "7.7.0"
   resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.7.0.tgz#e1066e251e17606ec7908b05617f9b7f8180d8f3"
   integrity sha512-/TS23MVvo34dFmf8mwCisCbWGrfhbiWZSwBo6HkADTBhUa2Q/jWltyY/tpofz/b6/RIhqaqQcquptCirqIhOaQ==
@@ -5778,12 +5778,12 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-button-a11y@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/react-button-a11y/-/react-button-a11y-4.0.0.tgz#63cb6ad1a08b2e395f1aa94dcb4cee85626da51f"
-  integrity sha512-Tsu0o7mka6MqFJz5fH0X/DDu45iDM6WVzJXcudClGJiW1LI3esQV+PegeNr4Xk6piN2RA+7kT5MOkezAQUW85g==
+react-button-a11y@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/react-button-a11y/-/react-button-a11y-4.1.0.tgz#ad9d6facb75fdcafe34d2d641e71fcbd79ce6e32"
+  integrity sha512-GGyn3k1zQVrimyGACNrsIhQ96JfwaqRLRm40fXLHOO4fJJy7yShW4V9ad/N7jOikch9uekS9cAlczXqHSBohGA==
   dependencies:
-    react-with-forwarded-ref "^0.1.0"
+    react-with-forwarded-ref "^0.2.0"
 
 react-dom@^16.12.0:
   version "16.12.0"
@@ -5809,13 +5809,6 @@ react-test-renderer@^16.0.0-0:
     prop-types "^15.6.2"
     react-is "^16.8.6"
     scheduler "^0.18.0"
-
-react-with-forwarded-ref@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/react-with-forwarded-ref/-/react-with-forwarded-ref-0.1.0.tgz#105658548957dec5fdd6c01f5ecda5f7a44020ab"
-  integrity sha512-2VjYW1qwMxbUqnJwsS8CAcZSYB7gp4fxg2fucLK8y5tnuXGQxtbAGKajLuT7gZHWODzmesW0dm4RkvafWoNz7A==
-  dependencies:
-    "@babel/polyfill" "^7.0.0"
 
 react-with-forwarded-ref@^0.2.0:
   version "0.2.0"
