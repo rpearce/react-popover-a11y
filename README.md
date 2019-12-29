@@ -3,11 +3,136 @@
 [![npm version](https://img.shields.io/npm/v/react-popover-a11y.svg)](https://www.npmjs.com/package/react-popover-a11y) [![npm downloads](https://img.shields.io/npm/dt/react-popover-a11y.svg)](https://www.npmjs.com/package/react-popover-a11y) [![Build Status](https://travis-ci.org/rpearce/react-popover-a11y.svg?branch=master)](https://travis-ci.org/rpearce/react-popover-a11y) [![Coverage Status](https://coveralls.io/repos/github/rpearce/react-popover-a11y/badge.svg?branch=master)](https://coveralls.io/github/rpearce/react-popover-a11y?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/8e4debef4b9f0e8acd6e/maintainability)](https://codeclimate.com/github/rpearce/react-popover-a11y/maintainability)
 
 ## Links
-* [`API Documentation`](./API.md)
-* [`Authors`](./AUTHORS)
-* [`Changelog`](./CHANGELOG.md)
-* [`Contributing`](./CONTRIBUTING.md)
-* [`Code of Conduct`](./CODE_OF_CONDUCT.md)
+* [Installation](#installation)
+* [Usage](#usage)
+* [API](#api)
+* [All Contributors](#contributors)
+* [Authors](./AUTHORS)
+* [Changelog](./CHANGELOG.md)
+* [Contributing](./CONTRIBUTING.md)
+* [Code of Conduct](./CODE_OF_CONDUCT.md)
+
+## Installation
+```js
+$ npm i react-popover-a11y
+```
+or
+```js
+$ yarn add react-popover-a11y
+```
+
+## Usage
+
+```js
+import PopoverA11y from 'react-popover-a11y'
+
+export default class App extends Component {
+  constructor(...params) {
+    super(...params)
+    this.handleClose = this.handleClose.bind(this)
+    this.handleOpen = this.handleOpen.bind(this)
+    this.state = { isOpen: false }
+  }
+
+  handleClose() {
+    this.setState({ isOpen: false })
+  }
+
+  handleOpen() {
+    this.setState({ isOpen: true })
+  }
+
+  render() {
+    const { isOpen } = this.state
+    const content = <div className="content">Popover content</div>
+    const trigger = <div className="btn">Click me</div>
+
+    return (
+      <PopoverA11y
+        bottom
+        right
+        content={content}
+        isOpen={isOpen}
+        offset={10}
+        onClose={this.handleClose}
+        onOpen={this.handleOpen}
+        trigger={trigger}
+      />
+    )
+  }
+}
+```
+
+### Adding `PopoverContent` style
+
+```js
+import PopoverA11y, { PopoverContent } from 'react-popover-a11y'
+
+export default class App extends Component {
+  constructor(...params) {
+    super(...params)
+    this.handleClose = this.handleClose.bind(this)
+    this.handleOpen = this.handleOpen.bind(this)
+    this.state = { isOpen: false }
+  }
+
+  handleClose() {
+    this.setState({ isOpen: false })
+  }
+
+  handleOpen() {
+    this.setState({ isOpen: true })
+  }
+
+  render() {
+    const { isOpen } = this.state
+    const content = <div className="content">Popover content</div>
+    const trigger = (
+      <PopoverContent style={{ zIndex: '9999' }}>
+        <div className="btn">Click me</div>
+      </PopoverContent>
+    )
+
+    return (
+      <PopoverA11y
+        bottom
+        right
+        content={content}
+        isOpen={isOpen}
+        offset="-0.5rem"
+        onClose={this.handleClose}
+        onOpen={this.handleOpen}
+        trigger={trigger}
+      />
+    )
+  }
+}
+```
+
+### Can compose tangential directions
+You can pass both `bottom` and `left` or `top` and `right`, for example, or
+simply one of those.
+
+### On `window` boundaries
+If you specify `top` and `right`, but the popover would open _outside_ the
+`window` to the top and right, this component will adjust it to be _inside_ the
+`window` – in this case, `bottom` and `left` – so that it will remain visible.
+
+# API
+
+| Prop | Type | Required | Default  | Details |
+| ---  | --- | ---  | --- | --- |
+| `bottom` | bool | no | none | Have popover appear at the bottom |
+| `content` | node | yes | none | This is the popover content element. Can be a normal React node or import `PopoverContent` itself to override its `style` |
+| `isOpen` | bool | yes | false | As a controlled component, you must pass `isOpen` to tell the component what to do |
+| `label` | string | no | none | Provide a label to be used as `aria-label` when no appropriate `trigger` text is provided |
+| `left` | bool | no | none | Have popover appear at the left |
+| `offset` | number / CSS unit | no | `0px` | Amount in pixels (or CSS unit value, like `-0.5rem`) for popover to be offset from trigger |
+| `onClose` | function | yes | `Function.prototype` | Callback that is triggered when element should close |
+| `onOpen` | function | yes | `Function.prototype` | Callback that is triggered when element should open |
+| `right` | bool | no | none | Have popover appear at the right |
+| `top` | bool | no | none | Have popover appear at the top |
+| `trigger` | node | yes | none | This is the popover trigger element |
 
 ## Contributors
 
