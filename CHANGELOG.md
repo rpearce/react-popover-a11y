@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * changed license from ISC to BSD-3
 * bumped heaps of dependencies
 * moved API docs back to README
+* correctly now listing `react-dom` as a peer dependency
 
 ### Added
 * added `prop-types` as dependency
