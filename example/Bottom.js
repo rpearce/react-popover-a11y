@@ -1,5 +1,5 @@
 import React from 'react'
-import PopoverA11y from '../'
+import PopoverA11y from '../dist/cjs'
 
 import withOpenToggle from './withOpenToggle'
 
