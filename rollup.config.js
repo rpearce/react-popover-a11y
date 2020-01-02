@@ -1,26 +1,14 @@
 import { dirname } from 'path'
-
-import React from 'react'
-import ReactDOM from 'react-dom'
-import propTypes from 'prop-types'
-
 import babel from 'rollup-plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
+import external from 'rollup-plugin-auto-external'
 import resolve from '@rollup/plugin-node-resolve'
 import pkg from './package.json'
 
 const plugins = [
   resolve(),
-  commonjs({
-    include: /node_modules/,
-
-    // https://github.com/rollup/rollup-plugin-commonjs/issues/407#issuecomment-527837831
-    namedExports: {
-      react: Object.keys(React),
-      'react-dom': Object.keys(ReactDOM),
-      'prop-types': Object.keys(propTypes)
-    }
-  }),
+  external(),
+  commonjs({ include: /node_modules/ }),
   babel({
     configFile: './babel.config.js',
     only: ['./source'],
@@ -52,15 +40,7 @@ const config = [
         sourcemap: true
       }
     ],
-    plugins,
-    external: [
-      '@rpearce/simple-uniqueid',
-      'prop-types',
-      'react',
-      'react-button-a11y',
-      'react-dom',
-      'react-with-forwarded-ref'
-    ]
+    plugins
   },
   {
     input: './source/index.js',
@@ -70,7 +50,15 @@ const config = [
         exports: 'named',
         format: 'umd',
         name: 'rpa-umd',
-        sourcemap: true
+        sourcemap: true,
+        globals: {
+          react: 'React',
+          'react-dom': 'reactDOM',
+          'react-button-a11y': 'ButtonA11y',
+          '@rpearce/simple-uniqueid': 'uniqueId',
+          'prop-types': 'propTypes',
+          'react-with-forwarded-ref': 'withForwardedRef'
+        }
       }
     ],
     plugins
