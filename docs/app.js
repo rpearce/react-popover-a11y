@@ -218,7 +218,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     var isOutsideLeft = triggerRect.left - width <= 0;
     return Object.assign({}, initial, toBottom, // default
     toMiddleX, // default
-    dirTop && toTop, dirRight && toRight, dirBottom && toBottom, dirLeft && toLeft, (dirTop || dirBottom) && !dirLeft && !dirRight && toMiddleX, (dirRight || dirLeft) && !dirTop && !dirBottom && toMiddleY, isOutsideTop && toBottom, isOutsideRight && toLeft, isOutsideBottom && toTop, isOutsideLeft && toRight);
+    dirTop && toTop, dirRight && toRight, dirBottom && toBottom, dirLeft && toLeft, (dirTop || dirBottom) && !dirLeft && !dirRight && toMiddleX, (dirRight || dirLeft) && !dirTop && !dirBottom && toMiddleY, dirTop && isOutsideTop && toBottom, dirRight && isOutsideRight && toLeft, dirBottom && isOutsideBottom && toTop, dirLeft && isOutsideLeft && toRight);
   };
 
   var PopoverContent =
