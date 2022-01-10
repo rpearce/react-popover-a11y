@@ -21,6 +21,17 @@
         "ideas",
         "test"
       ]
+    },
+    {
+      "login": "mallo106",
+      "name": "Luke Mallory",
+      "avatar_url": "https://avatars.githubusercontent.com/u/36346097?v=4",
+      "profile": "https://github.com/mallo106",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
-  ]
+  ],
+  "commitConvention": "none"
 }
