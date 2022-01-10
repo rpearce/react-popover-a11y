@@ -71,10 +71,10 @@ const getPCStyle = ({
     dirLeft && toLeft,
     (dirTop || dirBottom) && !dirLeft && !dirRight && toMiddleX,
     (dirRight || dirLeft) && !dirTop && !dirBottom && toMiddleY,
-    isOutsideTop && toBottom,
-    isOutsideRight && toLeft,
-    isOutsideBottom && toTop,
-    isOutsideLeft && toRight
+    dirTop && isOutsideTop && toBottom,
+    dirRight && isOutsideRight && toLeft,
+    dirBottom && isOutsideBottom && toTop,
+    dirLeft && isOutsideLeft && toRight
   )
 }
 

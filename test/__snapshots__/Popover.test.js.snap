@@ -278,7 +278,7 @@ exports[`Popover renders with PopoverContent, open 1`] = `
             aria-hidden="false"
             id="mockId"
             role="dialog"
-            style="z-index: 9999; position: absolute; opacity: 1; visibility: visible;"
+            style="z-index: 9999; position: absolute; left: 0px; opacity: 1; visibility: visible;"
             tabindex="-1"
           >
             <div>
@@ -312,7 +312,7 @@ exports[`Popover renders with PopoverContent, open 1`] = `
                 aria-hidden="false"
                 id="mockId"
                 role="dialog"
-                style="z-index: 9999; position: absolute; opacity: 1; visibility: visible;"
+                style="z-index: 9999; position: absolute; left: 0px; opacity: 1; visibility: visible;"
                 tabindex="-1"
               >
                 <div>
@@ -343,7 +343,7 @@ exports[`Popover renders with PopoverContent, open 1`] = `
             role="dialog"
             style={
               Object {
-                "left": "calc(0px + 0px)",
+                "left": "0px",
                 "opacity": "1",
                 "position": "absolute",
                 "top": "calc(0px + 0px)",
@@ -927,7 +927,7 @@ exports[`Popover renders, open 1`] = `
             aria-hidden="false"
             id="mockId"
             role="dialog"
-            style="z-index: 999; position: absolute; opacity: 1; visibility: visible;"
+            style="z-index: 999; position: absolute; left: 0px; opacity: 1; visibility: visible;"
             tabindex="-1"
           >
             <div>
@@ -957,7 +957,7 @@ exports[`Popover renders, open 1`] = `
                 aria-hidden="false"
                 id="mockId"
                 role="dialog"
-                style="z-index: 999; position: absolute; opacity: 1; visibility: visible;"
+                style="z-index: 999; position: absolute; left: 0px; opacity: 1; visibility: visible;"
                 tabindex="-1"
               >
                 <div>
@@ -984,7 +984,7 @@ exports[`Popover renders, open 1`] = `
             role="dialog"
             style={
               Object {
-                "left": "calc(0px + 10px)",
+                "left": "0px",
                 "opacity": "1",
                 "position": "absolute",
                 "top": "calc(0px + 10px)",
@@ -1075,7 +1075,7 @@ exports[`Popover renders, open with NO offset 1`] = `
             aria-hidden="false"
             id="mockId"
             role="dialog"
-            style="z-index: 999; position: absolute; opacity: 1; visibility: visible;"
+            style="z-index: 999; position: absolute; left: 0px; opacity: 1; visibility: visible;"
             tabindex="-1"
           >
             <div>
@@ -1104,7 +1104,7 @@ exports[`Popover renders, open with NO offset 1`] = `
                 aria-hidden="false"
                 id="mockId"
                 role="dialog"
-                style="z-index: 999; position: absolute; opacity: 1; visibility: visible;"
+                style="z-index: 999; position: absolute; left: 0px; opacity: 1; visibility: visible;"
                 tabindex="-1"
               >
                 <div>
@@ -1130,7 +1130,7 @@ exports[`Popover renders, open with NO offset 1`] = `
             role="dialog"
             style={
               Object {
-                "left": "calc(0px + 0px)",
+                "left": "0px",
                 "opacity": "1",
                 "position": "absolute",
                 "top": "calc(0px + 0px)",
@@ -1220,7 +1220,7 @@ exports[`Popover renders, open with label 1`] = `
             aria-label="Click me"
             id="mockId"
             role="dialog"
-            style="z-index: 999; position: absolute; opacity: 1; visibility: visible;"
+            style="z-index: 999; position: absolute; left: 0px; opacity: 1; visibility: visible;"
             tabindex="-1"
           >
             <div>
@@ -1252,7 +1252,7 @@ exports[`Popover renders, open with label 1`] = `
                 aria-label="Click me"
                 id="mockId"
                 role="dialog"
-                style="z-index: 999; position: absolute; opacity: 1; visibility: visible;"
+                style="z-index: 999; position: absolute; left: 0px; opacity: 1; visibility: visible;"
                 tabindex="-1"
               >
                 <div>
@@ -1281,7 +1281,7 @@ exports[`Popover renders, open with label 1`] = `
             role="dialog"
             style={
               Object {
-                "left": "calc(0px + 10px)",
+                "left": "0px",
                 "opacity": "1",
                 "position": "absolute",
                 "top": "calc(0px + 10px)",
