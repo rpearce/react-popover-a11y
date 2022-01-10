@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2022-01-10
+
+### Fixed
+
+* "Switch directions refinement" (#33)
+  * Only switch directions for a direction when at a boundary if that direction
+    is specified in the first place
+
 ## [1.2.0] - 2019-01-02
 
 ### Changed
