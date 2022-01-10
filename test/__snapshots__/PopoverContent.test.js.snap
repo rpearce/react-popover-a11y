@@ -34,10 +34,10 @@ exports[`PopoverContent component renders, additional props added 1`] = `
   role="dialog"
   style={
     Object {
-      "left": "calc(150px - 0px)",
+      "left": "234px",
       "opacity": "1",
       "position": "absolute",
-      "top": "calc(50px - 0px)",
+      "top": "calc(218px + 0px)",
       "visibility": "visible",
       "zIndex": "999",
     }
@@ -58,10 +58,10 @@ exports[`PopoverContent component renders, custom style provided 1`] = `
   role="dialog"
   style={
     Object {
-      "left": "calc(150px - 0px)",
+      "left": "234px",
       "opacity": "1",
       "position": "absolute",
-      "top": "calc(50px - 0px)",
+      "top": "calc(218px + 0px)",
       "visibility": "visible",
       "zIndex": "9999",
     }
@@ -202,7 +202,7 @@ exports[`PopoverContent component renders, open & outside bottom 1`] = `
   role="dialog"
   style={
     Object {
-      "left": "calc(125px + 0px)",
+      "left": "37.5px",
       "opacity": "1",
       "position": "absolute",
       "top": "calc(0px - 0px)",
@@ -250,7 +250,7 @@ exports[`PopoverContent component renders, open & outside right 1`] = `
   role="dialog"
   style={
     Object {
-      "left": "calc(125px + 0px)",
+      "left": "calc(-50px - 0px)",
       "opacity": "1",
       "position": "absolute",
       "top": "137.5px",
@@ -418,7 +418,7 @@ exports[`PopoverContent component renders, open 1`] = `
   role="dialog"
   style={
     Object {
-      "left": "calc(0px + 0px)",
+      "left": "-75px",
       "opacity": "1",
       "position": "absolute",
       "top": "calc(0px + 0px)",
